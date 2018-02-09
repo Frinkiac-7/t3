@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./events')
+const engine = require('./engine')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -10,7 +11,7 @@ $(() => {
 
 $(() => {
   $('#userGuess').submit(events.onGuess)
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < engine.gameBoard.length; i++) {
     $('#gridPos' + i).click(events.onClick)
   }
 })
