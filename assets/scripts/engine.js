@@ -7,6 +7,7 @@ Check Board for Winner
 */
 
 let gameBoard = ['!', '!', '!', '!', '!', '!', '!', '!', '!']
+let moveCount = 0
 
 const coord = {
   'row': 0,
@@ -28,7 +29,8 @@ const convertCoord = function (coord) {
 
 module.exports = {
   convertCoord,
-  gameBoard
+  gameBoard,
+  moveCount
 }
 
 // PUT LINTER SHUTTER UPPER CODE HERE
