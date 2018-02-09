@@ -1,5 +1,5 @@
 const getFormFields = require('../../lib/get-form-fields')
-// const engine = require('./engine')
+const engine = require('./engine')
 
 // const ui = require('./ui')
 
@@ -13,16 +13,15 @@ const onClick = function (event) {
   event.preventDefault()
   for (let i = 0; i < 9; i++) {
     const gridPos = 'gridPos' + i
-    console.log('event.target.id is', event.target.id + '.')
-    console.log('gridPos is', gridPos + '.')
-    console.log('event.target.id is a', typeof (event.target.id) + ' ')
-    console.log('gridPos is a', typeof (gridPos))
     if (event.target.id === gridPos) {
-      console.log('We have a match')
-      console.log('and array index (i) would be', i + '.')
-      return
-    } else if (i === 9) {
-      console.log('No match found')
+      if (engine.gameBoard[i] === '!') {
+        engine.gameBoard[i] = 'X'
+        $('#' + gridPos).text('NOT AVAILABLE')
+      } else {
+        $('#' + gridPos).text('I SAID IT IS NOT AVAILABLE')
+        // Consider a modal warning if legit by project rules
+        console.log('ERROR:  engine.gameBoard[' + i + '] is already set to', engine.gameBoard[i])
+      }
     }
   }
 }
