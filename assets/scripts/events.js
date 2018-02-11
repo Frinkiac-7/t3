@@ -6,7 +6,8 @@ const engine = require('./engine')
 const onClick = function (event) {
   event.preventDefault()
   console.log('onClick invoked')
-  engine.playerMove()
+  const gridPos = event.target.id
+  engine.playerMove(gridPos)
 }
 
 const onGuess = function (event) {
