@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>T3 - The Tic Tac Toe Game</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,36 +12,60 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>T3 - The Frinkiac-7 Game of Tic Tac Toe!</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <p>First, yeah, Frinkiac-7 is a <a href="http://www.criticalcommons.org/Members/ccManager/clips/simpsonss7e23muchapuaboutnothingfrinkiac7.mp4/embed_view">Simpsons reference</a>.
+        Now that we got that settled, let's move on to the to the game!
+      </p>
+      <p>
 
-      <div>
-        <div class="row">
-          <div id="gridPos00" class="col-xs-6 col-md-4 box teal">Grid position 0 - UNASSIGNED</div>
-          <div id="gridPos01" class="col-xs-6 col-md-4 box teal">Grid position 1 - UNASSIGNED</div>
-          <div id="gridPos02" class="col-xs-6 col-md-4 box teal">Grid position 2 - UNASSIGNED</div>
+      </p>
+      <div class="container">
+        <div class="row artic00">
+          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos00" src="assets/img/grampa.jpg" alt="Young Grampa Simpson" height="250" width="200"></div>
+          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos01" src="assets/img/krusty.jpg" alt="Krusty the Klown riding a tiny bike" height="250" width="200"></div>
+          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos02" src="assets/img/lisa.jpg" alt="Sassy Lisa" height="250" width="200"></div>
         </div>
-        <div class="row">
-          <div id="gridPos10" class="col-xs-6 col-md-4 box teal">Grid position 3 - UNASSIGNED</div>
-          <div id="gridPos11" class="col-xs-6 col-md-4 box teal">Grid position 4 - UNASSIGNED</div>
-          <div id="gridPos12" class="col-xs-6 col-md-4 box teal">Grid position 5 - UNASSIGNED</div>
+        <div class="row article">
+          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos10" src="assets/img/otto.jpg" alt="Otto the bus driver" height="250" width="200"></div>
+          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos11" src="assets/img/pieman.jpg" alt="Homer as Pieman" height="250" width="200"></div>
+          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos12" src="assets/img/marge.jpg" alt="Marge Simpson" height="250" width="200"></div>
         </div>
-        <div class="row">
-          <div id="gridPos20" class="col-xs-6 col-md-4 box teal">Grid position 6 - UNASSIGNED</div>
-          <div id="gridPos21" class="col-xs-6 col-md-4 box teal">Grid position 7 - UNASSIGNED</div>
-          <div id="gridPos22" class="col-xs-6 col-md-4 box teal">Grid position 8 - UNASSIGNED</div>
+        <div class="row article">
+          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos20" src="assets/img/sideshowbob.jpg" alt="Sideshow Bob" height="250" width="200"></div>
+          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos21" src="assets/img/skinner.jpg" alt="Principal Skinner" height="250" width="200"></div>
+          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos22" src="assets/img/ralph.jpg" alt="Ralph Wiggum" height="250" width="200"></div>
         </div>
       </div>
+      <hr>
+      <h1>T3 - The Frinkiac-7 Game of Tic Tac Toe!</h1>
+      <div class="container">
+        <div class="row article">
+          <div class="col-md-8 box teal">.col-md-8</div>
+          <div class="col-md-4 box teal">.col-md-4</div>
+        </div>
+          <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+          <div class="col-xs-12 col-md-8 box grey">.col-xs-12 .col-md-8</div>
+          <div class="col-xs-6 col-md-4 box grey">.col-xs-6 .col-md-4</div>
+        </div>
+          <!-- Columns start at 50% wide on mobile and bump up to 33.3% 6wide on desktop -->
+        <div class="row">
+          <div class="col-xs-6 col-md-4 box teal">.col-xs-6 .col-md-4</div>
+          <div class="col-xs-6 col-md-4 box teal">.col-xs-6 .col-md-4</div>
+          <div class="col-xs-6 col-md-4 box teal">.col-xs-6 .col-md-4</div>
+        </div>
+          <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="row">
+          <div class="col-xs-6 box grey">.col-xs-6</div>
+          <div class="col-xs-6 box grey">.col-xs-6</div>
+        </div>
+      </div>
+      <hr>
       <div>
         <h1>I need some space</h1>
         <p>Just 'cuz</p>
       </div>
+      <hr>
     </body>
 </html>

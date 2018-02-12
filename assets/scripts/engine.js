@@ -204,12 +204,14 @@ const recordMove = function (player, gridPos) {
     // Update the gameArray (see playerMove while loop comment)
     gameArray[gameObject[gridPos].arrayIndex] = player
     // Update the DOM to indicate the space has been selected
-    $('#' + gridPos).text(player + ' takes the square')
+    // $('#' + gridPos).text(player + ' takes the square')
+    $('#' + gridPos).attr('src', 'assets/img/taken-player-' + player + '.jpg')
   } else { // Will only execute if grid position is anything but "!"
     // Reduce moveCount to allow current player to try again
     --moveCount
     // Update the DOM to let current player know who already owns that square
-    $('#' + gridPos).text(gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
+    // $('#' + gridPos).text(gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
+    $('#' + gridPos).attr('src', 'assets/img/taken-threat-player-' + gameObject[gridPos].value + '.jpg')
   }
 }
 

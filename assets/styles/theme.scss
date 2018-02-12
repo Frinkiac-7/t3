@@ -1,0 +1,21 @@
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.message {
+  text-align: center;
+}
+
+.box {
+  border: 1px solid $white;
+  height: 250px;
+}
+
+.grey {
+  background-color: $grey;
+}
+
+.teal {
+  background-color: $teal;
+}
