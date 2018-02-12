@@ -81,45 +81,113 @@ let gameObject = {
   }
 }
 
-// array.forEach(gameObject.arrayToObject)
-
+// Invoke the game result determining functions
 const checkForWin = function () {
-  checkColumn(array, 3, 1)
+  checkRow()
+  checkDiagonal()
 }
 
-const checkColumn = function () {
-  // Fill new code
+// call back function for the game result checking functions
+const isX = function (element) {
+  if (element === 'X') {
+    return true
+  }
+}
+
+// call back function for the game result checking functions
+const isO = function (element) {
+  if (element === 'O') {
+    return true
+  }
+}
+
+// Check the diagonals for win by X or O
+const checkDiagonal = function () {
+  console.log('checkDiagonal invoke')
+  let testArray = [gameObject['gridPos00'].value, gameObject['gridPos11'].value, gameObject['gridPos22'].value]
+  if (testArray.every(isX) === true) {
+    console.log('checkDiagonal first array')
+    console.log('HURRAY!!! X WON!!!')
+    // return
+  } else if (testArray.every(isO) === true) {
+    // testing first for O
+    console.log('HURRAY!!! O WON!!!')
+    // return
+  } else {
+    testArray = [gameObject['gridPos02'].value, gameObject['gridPos11'].value, gameObject['gridPos20'].value]
+    if (testArray.every(isX) === true) {
+      console.log('checkDiagonal second array')
+      console.log('HURRAY!!! X WON!!!')
+      // return
+    } else if (testArray.every(isO) === true) {
+      // testing first for O
+      console.log('HURRAY!!! O WON!!!')
+      // return
+    } else {
+      // if no player wins across the row then reset array for next row
+      console.log('Neither X nor O won.  Resetting array')
+      testArray = []
+    }
+  }
+}
+
+// Check the rows for win by X or O
+const checkRow = function () {
+  // testArray simply stores the values of each row
+  let testArray = []
+  // for loop to generate the row (x axis) coordinate of the gridPos ID
+  for (let x = 0; x < 3; x++) {
+    // for loop to generate the second (y axis) coordinate of the gridPos ID
+    for (let y = 0; y < 3; y++) {
+      // concat x and y values to create gridPosXY variable
+      const gridPos = 'gridPos' + x + y
+      // push gameObject[gridPosXY].value to testArray
+      testArray.push(gameObject[gridPos].value)
+      // if the array has 3 elements check to see if that row is all X or O
+      if (testArray.length === 3) {
+        // testing first for X
+        if (testArray.every(isX) === true) {
+          console.log('HURRAY!!! X WON!!!')
+          return
+        } else if (testArray.every(isO) === true) {
+          // testing first for O
+          console.log('HURRAY!!! O WON!!!')
+          return
+        } else {
+          // if no player wins across the row then reset array for next row
+          console.log('Neither X nor O won.  Resetting array')
+          testArray = []
+        }
+      }
+    }
+  }
 }
 
 const playerMove = function (gridPos) {
   // Sets who is currently playing and invokes the recordMove function to
   // update the gameArray and gameObject
-  console.log('playerMove function executed')
-  console.log('engine.moveCount is', moveCount)
   // Checks to make sure there are still available moves
   while (gameArray.includes('!')) {
-    console.log('playerMove while loop invoked')
     if (isEven(moveCount)) {
       // Even moveCounts are player X
-      console.log('engine.moveCount is' + moveCount + 'which is EVEN')
       const player = 'X'
       recordMove(player, gridPos)
       moveCount++
       return
     } else {
       // Odd moveCounts are player O
-      console.log('engine.moveCount is' + moveCount + 'which is ODD')
       const player = 'O'
       recordMove(player, gridPos)
       moveCount++
       return
     }
   }
+  checkForWin()
 }
 
 const isEven = function (num) {
   // Pretty self explanatory.  Checks to see if moveCount is odd or even
-  console.log('isEven function invoked')
+  // Even moveCounts identify X, odd moveCount identify O
   if (num % 2 === 0) {
     return true
   } else {
@@ -128,43 +196,28 @@ const isEven = function (num) {
 }
 
 const recordMove = function (player, gridPos) {
-  console.log('recordMove function invoked')
-  console.log('player is', player)
-  console.log('event.target.id is', event.target.id)
-  console.log('grisPos is', gridPos)
-  console.log('gameObject started as', gameObject)
-  console.log('gameArray started as', gameArray)
   // Check if the selected grid position is available ("!" means available)
   if (gameObject[gridPos].value === '!') {
-    console.log('IF invoked')
-    console.log('INSIDE IF: player is', player)
     // Update the gameObject value and player properties with current player info
     gameObject[gridPos].value = player
-    console.log('gameObject[gridPos].value = player is', gameObject[gridPos].value)
     gameObject[gridPos].player = player
-    console.log('gameObject[gridPos].player = player is', gameObject[gridPos].player)
     // Update the gameArray (see playerMove while loop comment)
     gameArray[gameObject[gridPos].arrayIndex] = player
-    console.log('gameArray[gameObject[gridPos].arrayIndex] = player has been set to', gameArray[gameObject[gridPos].arrayIndex])
-    console.log('gameObject is now', gameObject)
-    console.log('gameArray is now', gameArray)
     // Update the DOM to indicate the space has been selected
     $('#' + gridPos).text(player + ' takes the square')
   } else { // Will only execute if grid position is anything but "!"
     // Reduce moveCount to allow current player to try again
     --moveCount
-    console.log('ELSE condition invoked')
-    console.log('player is', player)
-    console.log('gameObject[gridPos].player is', gameObject[gridPos].player)
     // Update the DOM to let current player know who already owns that square
-    $('#' + gridPos).text('Sorry Player ' + player + '! ' + gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
+    $('#' + gridPos).text(gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
   }
 }
 
 // const checkForWin = function (gameArray) {
 
 module.exports = {
-  checkColumn,
+  isX,
+  checkRow,
   checkForWin,
   recordMove,
   isEven,
