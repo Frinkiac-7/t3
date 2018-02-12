@@ -3,13 +3,26 @@ body {
   color: $font-color;
 }
 
+a {
+//  color: $white;
+  text-decoration: none;
+}
+
+.align {
+  text-align: center;
+}
+
+.intro {
+  font-size: 20px;
+  text-align: center;
+}
+
 .message {
   text-align: center;
 }
 
 .box {
   border: 1px solid $white;
-  height: 250px;
 }
 
 .grey {
@@ -18,4 +31,9 @@ body {
 
 .teal {
   background-color: $teal;
+}
+
+.large-modal {
+  font-size: 20px;
+  color: $black;
 }
