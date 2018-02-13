@@ -11,6 +11,10 @@ $(() => {
 
 $(() => {
   $('#userGuess').submit(events.onGuess)
+  $('#sign-up-form').submit(events.onSignUp)
+  $('#sign-in-form').submit(events.onSignIn)
+  $('#change-password-form').submit(events.onChangePassword)
+  $('#sign-out-form').submit(events.onSignOut)
   // for (let i = 0; i < engine.gameArray.length; i++) {
   //   $('#gridPos' + i).click(events.onClick)
   // }
