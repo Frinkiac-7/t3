@@ -58,9 +58,51 @@ const onSignOut = function (data) {
   })
 }
 
+const onNewGame = function (token) {
+  console.log('api.onNewGame invoked')
+  console.log('token is', token)
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateGameAPI = function (data) {
+  console.log('api.updateGameAPI invoked')
+  console.log('data is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const onGetGames = function (data) {
+  console.log('api.onGetGames invoked')
+  return $.ajax({
+    url: config.apiOrigin + '/games/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
+  onNewGame,
+  updateGameAPI,
+  onGetGames,
   onSignOut
 }

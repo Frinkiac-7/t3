@@ -15,6 +15,8 @@ $(() => {
   $('#sign-in-form').submit(events.onSignIn)
   $('#change-password-form').submit(events.onChangePassword)
   $('#sign-out-form').submit(events.onSignOut)
+  $('#start-new-game').submit(events.onNewGame)
+  $('#get-games').submit(events.onGetGames)
   // for (let i = 0; i < engine.gameArray.length; i++) {
   //   $('#gridPos' + i).click(events.onClick)
   // }

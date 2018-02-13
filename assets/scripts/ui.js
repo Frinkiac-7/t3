@@ -27,14 +27,28 @@ const onChangePasswordSuccess = function (data) {
 const onSignOutSuccess = function (data) {
   console.log('onSignOutSuccess invoked')
   console.log('data is', data)
-  console.log('assigning store.user = data.user')
-  store.user = data.user
-  console.log('store.user is', store.user)
+}
+
+const onNewGameSuccess = function (data) {
+  console.log('onNewGameSuccess invoked')
+  console.log('return game object data is', data)
+  console.log('Value of store.game BEFORE assignment is', store.game)
+  store.game = data.game
+  console.log('Value of store.game AFTER assignment is', store.game)
+}
+
+const onGetGames = function (data) {
+  console.log('api.onGetGames invoked')
+  console.log('data is', data)
+  store.game = data
+  console.log('store.game: ', store.game)
 }
 
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onChangePasswordSuccess,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onGetGames,
+  onNewGameSuccess
 }

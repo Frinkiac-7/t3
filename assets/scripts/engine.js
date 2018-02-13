@@ -1,3 +1,6 @@
+const store = require('./store')
+const api = require('./api')
+
 // Sole purpose is for the while loop in playerMove to determine if there are
 // any moves available
 let gameArray = ['!', '!', '!', '!', '!', '!', '!', '!', '!']
@@ -85,6 +88,8 @@ let gameObject = {
 const checkForWin = function () {
   checkRow()
   checkDiagonal()
+  store.game.over = true
+  console.log('game status is (store.game.over)', store.game.over)
 }
 
 // call back function for the game result checking functions
@@ -167,7 +172,12 @@ const playerMove = function (gridPos) {
   // Sets who is currently playing and invokes the recordMove function to
   // update the gameArray and gameObject
   // Checks to make sure there are still available moves
-  while (gameArray.includes('!')) {
+  console.log('store.game is', store.game)
+  console.log('store.game.cells[0] is', store.game.cells[0])
+  console.log('gridPos is', gridPos)
+  console.log('store.game.cells[gameObject.gridPos.arrayIndex] is', store.game.cells[gameObject[gridPos].arrayIndex])
+//  while (gameArray.includes('!')) {
+  while (store.game.cells.includes('')) {
     if (isEven(moveCount)) {
       // Even moveCounts are player X
       const player = 'X'
@@ -197,10 +207,33 @@ const isEven = function (num) {
 
 const recordMove = function (player, gridPos) {
   // Check if the selected grid position is available ("!" means available)
-  if (gameObject[gridPos].value === '!') {
+  console.log('gameObject[gridPos].arrayIndex is', gameObject[gridPos].arrayIndex)
+  const index = gameObject[gridPos].arrayIndex
+  console.log('index is', index)
+//  store.game.cells[index] = player
+  console.log('store.game.cells is', store.game.cells)
+  console.log('store.game.cells[' + index + '] is', store.game.cells[index])
+//  if (gameObject[gridPos].value === '!') {
+  if (store.game.cells[index] === '') {
+    const indexString = index.toString()
+    if (indexString === 8) {
+      console.log('indexString if invoked')
+      const over = true
+    }
     // Update the gameObject value and player properties with current player info
+    const data = {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': player
+        },
+        over: false
+      }
+    }
+    store.game.cells[index] = player
     gameObject[gridPos].value = player
     gameObject[gridPos].player = player
+    api.updateGameAPI(data)
     // Update the gameArray (see playerMove while loop comment)
     gameArray[gameObject[gridPos].arrayIndex] = player
     // Update the DOM to indicate the space has been selected

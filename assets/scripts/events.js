@@ -2,6 +2,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const engine = require('./engine')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onClick = function (event) {
   event.preventDefault()
@@ -52,11 +53,28 @@ const onGuess = function (event) {
   console.log('Submit event invoked. userform is ', userForm)
 }
 
+const onNewGame = function (event) {
+  event.preventDefault()
+  console.log('onNewGame invoked')
+  api.onNewGame(store.user.token)
+    .then(ui.onNewGameSuccess)
+    .then(console.log('store.game is', store.game))
+}
+
+const onGetGames = function (event) {
+  event.preventDefault()
+  console.log('events.onGetGames invoked')
+  api.onGetGames()
+    .then(ui.onGetGames)
+}
+
 module.exports = {
   onGuess,
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
+  onNewGame,
+  onGetGames,
   onClick
 }
