@@ -1,19 +1,7 @@
 const config = require('./config')
 const store = require('./store')
 
-const onSignUp = function (data) {
-  console.log('api.onSignUp invoked')
-  console.log('data parameter is', data)
-  return $.ajax({
-    url: config.apiOrigin + '/sign-up',
-    method: 'POST',
-    headers: {
-      contentType: 'application/json'
-    },
-    data
-  })
-}
-
+// Sign in functions
 const onSignIn = function (data) {
   console.log('api.onSignIn invoked')
   console.log('data parameter is', data)
@@ -27,6 +15,37 @@ const onSignIn = function (data) {
   })
 }
 
+// Sign up functions
+const onSignUp = function (data) {
+  console.log('api.onSignUp invoked')
+  console.log('data parameter is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/sign-up',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json'
+    },
+    data
+  })
+}
+
+// Sign out functions
+const onSignOut = function (data) {
+  console.log('data is', data)
+  console.log('store.user.id is', store.user.id)
+  console.log('store.user.token is', store.user.token)
+  return $.ajax({
+    url: config.apiOrigin + '/sign-out/' + store.user.id,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+// Password functions
 const onChangePassword = function (data) {
   console.log('data is', data)
   console.log('store.user.token is', store.user.token)
@@ -43,21 +62,7 @@ const onChangePassword = function (data) {
   })
 }
 
-const onSignOut = function (data) {
-  console.log('data is', data)
-  console.log('store.user.id is', store.user.id)
-  console.log('store.user.token is', store.user.token)
-  return $.ajax({
-    url: config.apiOrigin + '/sign-out/' + store.user.id,
-    method: 'DELETE',
-    headers: {
-      contentType: 'application/json',
-      Authorization: 'Token token=' + store.user.token
-    },
-    data
-  })
-}
-
+// Game functions
 const onNewGame = function (token) {
   console.log('api.onNewGame invoked')
   console.log('token is', token)

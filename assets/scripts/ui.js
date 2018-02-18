@@ -1,24 +1,6 @@
 const store = require('./store')
 
-const showChangePasswordButton = function () {
-  $('#showChangePassword').slideDown('slow')
-}
-
-const showChangePasswordForm = function () {
-  $('#change-password-form').slideDown('slow')
-}
-
-const onSignUpSuccess = function (data) {
-  console.log('onSignUpSuccess invoked')
-  console.log('data is', data)
-  console.log('assigning store.user = data.user')
-  store.user = data.user
-  console.log('data.user is', store.user)
-  $('#sign-up-form').slideUp('slow')
-  $('#sign-in-form').slideDown('slow')
-  $('#message').text('User ' + data.user.email + ' successfully created!')
-}
-
+// Sign in functions
 const onSignInSuccess = function (data) {
   console.log('onSignInSuccess invoked')
   console.log('data in ui.onSignInSuccess is', data)
@@ -32,6 +14,33 @@ const onSignInSuccess = function (data) {
   $('#message').text('User ' + data.user.email + ' is signed in.')
 }
 
+// Sign up functions
+const onSignUpSuccess = function (data) {
+  console.log('onSignUpSuccess invoked')
+  console.log('data is', data)
+  console.log('assigning store.user = data.user')
+  store.user = data.user
+  console.log('data.user is', store.user)
+  $('#sign-up-form').slideUp('slow')
+  $('#sign-in-form').slideDown('slow')
+  $('#message').text('User ' + data.user.email + ' successfully created!')
+}
+
+// Sign out functions
+const onSignOutSuccess = function (data) {
+  console.log('onSignOutSuccess invoked')
+  console.log('data is', data)
+}
+
+// Password functions
+const showChangePasswordButton = function () {
+  $('#showChangePassword').slideDown('slow')
+}
+
+const showChangePasswordForm = function () {
+  $('#change-password-form').slideDown('slow')
+}
+
 const onChangePasswordSuccess = function () {
   console.log('onChangePasswordSuccess invoked')
   console.log('assigning store.user = data.user')
@@ -40,11 +49,7 @@ const onChangePasswordSuccess = function () {
   $('#message').text('User ' + store.user.email + ' password successful changed.')
 }
 
-const onSignOutSuccess = function (data) {
-  console.log('onSignOutSuccess invoked')
-  console.log('data is', data)
-}
-
+// Game functions
 const onNewGameSuccess = function (data) {
   console.log('onNewGameSuccess invoked')
   console.log('return game object data is', data)
