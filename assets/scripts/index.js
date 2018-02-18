@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./events')
+const ui = require('./ui')
 // const engine = require('./engine')
 
 $(() => {
@@ -12,13 +13,15 @@ $(() => {
 $(() => {
   $('#sign-up-form').hide()
   $('#change-password-form').hide()
-  $('#sign-out-form').hide()
+  $('#sign-out-button').hide()
+  $('#change-password-button').hide()
+  $('#change-password-button').click(ui.showChangePasswordForm)
   $('#acctNew').click(events.onAcctNew)
   $('#acctExists').click(events.onAcctExists)
   $('#sign-up-form').submit(events.onSignUp)
   $('#sign-in-form').submit(events.onSignIn)
   $('#change-password-form').submit(events.onChangePassword)
-  $('#sign-out-form').submit(events.onSignOut)
+  $('#sign-out-button').submit(events.onSignOut)
   $('#start-new-game').submit(events.onNewGame)
   $('#get-games').submit(events.onGetGames)
   // for (let i = 0; i < engine.gameArray.length; i++) {

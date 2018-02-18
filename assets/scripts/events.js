@@ -60,12 +60,6 @@ const onSignOut = function (event) {
     .then(ui.onSignOutSuccess)
 }
 
-const onGuess = function (event) {
-  event.preventDefault()
-  const userForm = getFormFields(event.target)
-  console.log('Submit event invoked. userform is ', userForm)
-}
-
 const onNewGame = function (event) {
   event.preventDefault()
   console.log('onNewGame invoked')
@@ -84,7 +78,6 @@ const onGetGames = function (event) {
 module.exports = {
   onAcctNew,
   onAcctExists,
-  onGuess,
   onSignUp,
   onSignIn,
   onSignOut,

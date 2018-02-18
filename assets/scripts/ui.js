@@ -1,5 +1,13 @@
 const store = require('./store')
 
+const showChangePasswordButton = function () {
+  $('#showChangePassword').slideDown('slow')
+}
+
+const showChangePasswordForm = function () {
+  $('#change-password-form').slideDown('slow')
+}
+
 const onSignUpSuccess = function (data) {
   console.log('onSignUpSuccess invoked')
   console.log('data is', data)
@@ -18,8 +26,8 @@ const onSignInSuccess = function (data) {
   store.user = data.user
   console.log('store.user is', store.user)
   $('#sign-in-form').slideUp('slow')
-  $('#change-password-form').slideDown('slow')
-  $('#sign-out-form').slideDown('slow')
+  $('#sign-out-button').slideDown('slow')
+  $('#change-password-button').slideDown('slow')
   console.log('Setting the message text in the div')
   $('#message').text('User ' + data.user.email + ' is signed in.')
 }
@@ -53,6 +61,8 @@ const onGetGames = function (data) {
 }
 
 module.exports = {
+  showChangePasswordForm,
+  showChangePasswordButton,
   onSignUpSuccess,
   onSignInSuccess,
   onChangePasswordSuccess,

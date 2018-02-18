@@ -52,6 +52,29 @@
   <div class="container">
     <div id="message-window">
       <p id="message"></p>
+      <form id="change-password-button">
+        <div class="form-group">
+          <p>Change Password</p>
+          <button type="submit" class="button">Change Password</button>
+        </div>
+      </form>
+      <form id="change-password-form">
+        <div class="form-group">
+          <p>Change password form</p>
+          <label>Enter your old password</label>
+          <input name="passwords[old]" type="password" placeholder="Enter your old password">
+          <label>Enter your new password</label>
+          <input name="passwords[new]" type="password" placeholder="Enter your new password">
+          <button type="submit" class="button">Change password</button>
+        </div>
+      </form>
+      <form id="sign-out-button">
+        <div class="form-group">
+          <p>Sign out button</p>
+          <button type="submit" class="button">Sign Out</button>
+        </div>
+      </form>
+      <hr>
     </div>
     <form id="sign-up-form">
       <div class="form-group">
@@ -63,10 +86,9 @@
         <label>Enter your password confirmation</label>
         <input name="credentials[password_confirmation]" type="password" placeholder="Confirm your password">
         <button type="submit" class="button">Sign Up</button>
-        <p>Already have an account? <a href="#" id="acctExists">Sign up here!</a></p>
+        <p>Already have an account? <a href="#" id="acctExists">Sign in here!</a></p>
       </div>
     </form>
-    <hr>
     <form id="sign-in-form">
       <div class="form-group">
         <p>Sign-in form</p>
@@ -76,24 +98,6 @@
         <input name="credentials[password]" type="password" placeholder="Enter your password">
         <button type="submit" class="button">Sign In</button>
         <p>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></p>
-      </div>
-    </form>
-    <hr>
-    <form id="change-password-form">
-      <div class="form-group">
-        <p>Change password form</p>
-        <label>Enter your old password</label>
-        <input name="passwords[old]" type="password" placeholder="Enter your old password">
-        <label>Enter your new password</label>
-        <input name="passwords[new]" type="password" placeholder="Enter your new password">
-        <button type="submit" class="button">Change password</button>
-      </div>
-    </form>
-    <hr>
-    <form id="sign-out-form">
-      <div class="form-group">
-        <p>Sign out button</p>
-        <button type="submit" class="button">Sign Out</button>
       </div>
     </form>
   </div>
@@ -136,7 +140,7 @@
           </div>
         </form>
         <hr>
-        <form id="sign-out-form">
+        <form id="sign-out-button">
           <div class="form-group">
             <p>Sign out button</p>
             <button type="submit" class="button">Sign Out</button>
