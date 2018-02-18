@@ -30,8 +30,8 @@ const onSignIn = function (data) {
 const onChangePassword = function (data) {
   console.log('data is', data)
   console.log('store.user.token is', store.user.token)
-  console.log('data.credentials.old is', data.passwords.old)
-  console.log('data.credentials.new is', data.passwords.new)
+  console.log('data.passwords.old is', data.passwords.old)
+  console.log('data.passwords.new is', data.passwords.new)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',

@@ -1,67 +1,120 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>T3 - The Tic Tac Toe Game</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>T3 - The Tic Tac Toe Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#myModal" data-toggle="modal" data-target="#myModal2">Change Password</a></li>
-            <li><a href="#myModal1" data-toggle="modal" data-target="#myModal1">Create Account</a></li>
-            <li><a href="#myModal2" data-toggle="modal" data-target="#myModal">Sign-In</a></li>
-          </ul>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myModal" data-toggle="modal" data-target="#myModal2">Change Password</a></li>
+        <li><a href="#myModal1" data-toggle="modal" data-target="#myModal1">Create Account</a></li>
+        <li><a href="#myModal2" data-toggle="modal" data-target="#myModal">Sign-In</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Log-in</h4>
         </div>
-      </nav>
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h4 class="modal-title">Log-in</h4>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input class="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
-              </div>
-              <p class="text-right"><a href="#">Forgot password?</a></p>
-            </div>
-            <div class="modal-footer">
-              <a href="#" data-dismiss="modal" class="btn">Close</a>
-              <a href="#" class="btn btn-primary">Log-in</a>
-            </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input class="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email">
           </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
+          </div>
+          <p class="text-right"><a href="#">Forgot password?</a></p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn">Close</a>
+          <a href="#" class="btn btn-primary">Log-in</a>
         </div>
       </div>
-      <h1>User Account actions</h1>
-      <div class="container">
-        <form id="sign-up-form">
-          <div class="form-group">
-            <p>Sign-up form</p>
-            <label>Enter your email</label>
-            <input name="credentials[email]" type="text" placeholder="an@example.email">
-            <label>Enter your password</label>
-            <input name="credentials[password]" type="password" placeholder="Enter your password">
-            <label>Enter your password confirmation</label>
-            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm your password">
-            <button type="submit" class="button">Sign Up</button>
-          </div>
-        </form>
-        <hr>
-        <form id="sign-in-form">
+    </div>
+  </div>
+  <h1>User Account actions</h1>
+  <div class="container">
+    <div id="message-window">
+      <p id="message"></p>
+    </div>
+    <form id="sign-up-form">
+      <div class="form-group">
+        <p>Sign-up form</p>
+        <label>Enter your email</label>
+        <input name="credentials[email]" type="text" placeholder="an@example.email">
+        <label>Enter your password</label>
+        <input name="credentials[password]" type="password" placeholder="Enter your password">
+        <label>Enter your password confirmation</label>
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm your password">
+        <button type="submit" class="button">Sign Up</button>
+        <p>Already have an account? <a href="#" id="acctExists">Sign up here!</a></p>
+      </div>
+    </form>
+    <hr>
+    <form id="sign-in-form">
+      <div class="form-group">
+        <p>Sign-in form</p>
+        <label>Enter your email</label>
+        <input name="credentials[email]" type="text" placeholder="an@example.email">
+        <label>Enter your password</label>
+        <input name="credentials[password]" type="password" placeholder="Enter your password">
+        <button type="submit" class="button">Sign In</button>
+        <p>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></p>
+      </div>
+    </form>
+    <hr>
+    <form id="change-password-form">
+      <div class="form-group">
+        <p>Change password form</p>
+        <label>Enter your old password</label>
+        <input name="passwords[old]" type="password" placeholder="Enter your old password">
+        <label>Enter your new password</label>
+        <input name="passwords[new]" type="password" placeholder="Enter your new password">
+        <button type="submit" class="button">Change password</button>
+      </div>
+    </form>
+    <hr>
+    <form id="sign-out-form">
+      <div class="form-group">
+        <p>Sign out button</p>
+        <button type="submit" class="button">Sign Out</button>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <h1>Game actions</h1>
+  <div class="container">
+    <form id="start-new-game">
+      <div class="form-group">
+        <p>Start a new game</p>
+        <button type="submit" class="button">Start Game</button>
+      </div>
+    </form>
+    <form id="get-games">
+      <div class="form-group">
+        <p>Start a new game</p>
+        <button type="submit" class="button">Get Games</button>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <!--        <form id="sign-in-form">
           <div class="form-group">
             <p>Sign-in form</p>
             <label>Enter your email</label>
@@ -90,76 +143,32 @@
           </div>
         </form>
       </div>
-      <hr>
-      <h1>Game actions</h1>
-      <div class="container">
-        <form id="start-new-game">
-          <div class="form-group">
-            <p>Start a new game</p>
-            <button type="submit" class="button">Start Game</button>
-          </div>
-        </form>
-        <form id="get-games">
-          <div class="form-group">
-            <p>Start a new game</p>
-            <button type="submit" class="button">Get Games</button>
-          </div>
-        </form>
-      </div>
-      <hr>
-<!--        <form id="sign-in-form">
-          <div class="form-group">
-            <p>Sign-in form</p>
-            <label>Enter your email</label>
-            <input name="credentials[email]" type="text" placeholder="an@example.email">
-            <label>Enter your password</label>
-            <input name="credentials[password]" type="password" placeholder="Enter your password">
-            <button type="submit" class="button">Sign In</button>
-          </div>
-        </form>
-        <hr>
-        <form id="change-password-form">
-          <div class="form-group">
-            <p>Change password form</p>
-            <label>Enter your old password</label>
-            <input name="passwords[old]" type="password" placeholder="Enter your old password">
-            <label>Enter your new password</label>
-            <input name="passwords[new]" type="password" placeholder="Enter your new password">
-            <button type="submit" class="button">Change password</button>
-          </div>
-        </form>
-        <hr>
-        <form id="sign-out-form">
-          <div class="form-group">
-            <p>Sign out button</p>
-            <button type="submit" class="button">Sign Out</button>
-          </div>
-        </form>
-      </div>
--->   <h1 class="align">T3 - The Frinkiac-7 Game of Tic Tac Toe!</h1>
-      <p class="intro">
-        First, yeah, Frinkiac-7 is a reference to Professor Frink's mainframe called the Frinkiac-7.
-      </p>
-      <p class="intro">
-          Now that we got that settled, let's move on to the to the game!
-      </p>
-    <div class="container">
-        <div class="row artic00">
-          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos00" src="https://i.imgur.com/XcXMfs1.jpg" alt="Young Grampa Simpson" height="250" width="200"></div>
-          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos01" src="https://i.imgur.com/t4hPZ0e.jpg" alt="Krusty the Klown riding a tiny bike" height="250" width="200"></div>
-          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos02" src="https://i.imgur.com/wCjESqj.jpg" alt="Sassy Lisa" height="250" width="200"></div>
-        </div>
-        <div class="row article">
-          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos10" src="https://i.imgur.com/RzcFNKg.jpg" alt="Otto the bus driver" height="250" width="200"></div>
-          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos11" src="https://i.imgur.com/ijXTj7e.jpg" alt="Homer as Pieman" height="250" width="200"></div>
-          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos12" src="https://i.imgur.com/C2rPuMu.jpg" alt="Marge Simpson" height="250" width="200"></div>
-        </div>
-        <div class="row article">
-          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos20" src="https://i.imgur.com/vDQT844.jpg" alt="Sideshow Bob" height="250" width="200"></div>
-          <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos21" src="https://i.imgur.com/EeBZ5kn.jpg" alt="Principal Skinner" height="250" width="200"></div>
-          <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos22" src="https://i.imgur.com/OJjYybi.jpg" alt="Ralph Wiggum" height="250" width="200"></div>
-        </div>
-      </div>
-      <hr>
-    </body>
+-->
+  <h1 class="align">T3 - The Frinkiac-7 Game of Tic Tac Toe!</h1>
+  <p class="intro">
+    First, yeah, Frinkiac-7 is a reference to Professor Frink's mainframe called the Frinkiac-7.
+  </p>
+  <p class="intro">
+    Now that we got that settled, let's move on to the to the game!
+  </p>
+  <div class="container">
+    <div class="row artic00">
+      <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos00" src="https://i.imgur.com/XcXMfs1.jpg" alt="Young Grampa Simpson" height="250" width="200"></div>
+      <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos01" src="https://i.imgur.com/t4hPZ0e.jpg" alt="Krusty the Klown riding a tiny bike" height="250" width="200"></div>
+      <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos02" src="https://i.imgur.com/wCjESqj.jpg" alt="Sassy Lisa" height="250" width="200"></div>
+    </div>
+    <div class="row article">
+      <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos10" src="https://i.imgur.com/RzcFNKg.jpg" alt="Otto the bus driver" height="250" width="200"></div>
+      <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos11" src="https://i.imgur.com/ijXTj7e.jpg" alt="Homer as Pieman" height="250" width="200"></div>
+      <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos12" src="https://i.imgur.com/C2rPuMu.jpg" alt="Marge Simpson" height="250" width="200"></div>
+    </div>
+    <div class="row article">
+      <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos20" src="https://i.imgur.com/vDQT844.jpg" alt="Sideshow Bob" height="250" width="200"></div>
+      <div class="col-xs-6 col-md-4 box grey message"><img id="gridPos21" src="https://i.imgur.com/EeBZ5kn.jpg" alt="Principal Skinner" height="250" width="200"></div>
+      <div class="col-xs-6 col-md-4 box teal message"><img id="gridPos22" src="https://i.imgur.com/OJjYybi.jpg" alt="Ralph Wiggum" height="250" width="200"></div>
+    </div>
+  </div>
+  <hr>
+</body>
+
 </html>

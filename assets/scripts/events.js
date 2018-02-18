@@ -4,6 +4,19 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
 
+const onAcctNew = function (event) {
+  event.preventDefault()
+  console.log('onAcctNew invoked')
+  $('#sign-in-form').slideUp('slow')
+  $('#sign-up-form').slideDown('slow')
+}
+
+const onAcctExists = function (event) {
+  event.preventDefault()
+  $('#sign-up-form').slideUp('slow')
+  $('#sign-in-form').slideDown('slow')
+}
+
 const onClick = function (event) {
   event.preventDefault()
   console.log('onClick invoked')
@@ -69,6 +82,8 @@ const onGetGames = function (event) {
 }
 
 module.exports = {
+  onAcctNew,
+  onAcctExists,
   onGuess,
   onSignUp,
   onSignIn,

@@ -10,7 +10,11 @@ $(() => {
 })
 
 $(() => {
-  $('#userGuess').submit(events.onGuess)
+  $('#sign-up-form').hide()
+  $('#change-password-form').hide()
+  $('#sign-out-form').hide()
+  $('#acctNew').click(events.onAcctNew)
+  $('#acctExists').click(events.onAcctExists)
   $('#sign-up-form').submit(events.onSignUp)
   $('#sign-in-form').submit(events.onSignIn)
   $('#change-password-form').submit(events.onChangePassword)

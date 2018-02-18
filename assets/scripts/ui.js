@@ -6,22 +6,30 @@ const onSignUpSuccess = function (data) {
   console.log('assigning store.user = data.user')
   store.user = data.user
   console.log('data.user is', store.user)
+  $('#sign-up-form').slideUp('slow')
+  $('#sign-in-form').slideDown('slow')
+  $('#message').text('User ' + data.user.email + ' successfully created!')
 }
 
 const onSignInSuccess = function (data) {
   console.log('onSignInSuccess invoked')
-  console.log('data is', data)
+  console.log('data in ui.onSignInSuccess is', data)
   console.log('assigning store.user = data.user')
   store.user = data.user
   console.log('store.user is', store.user)
+  $('#sign-in-form').slideUp('slow')
+  $('#change-password-form').slideDown('slow')
+  $('#sign-out-form').slideDown('slow')
+  console.log('Setting the message text in the div')
+  $('#message').text('User ' + data.user.email + ' is signed in.')
 }
 
-const onChangePasswordSuccess = function (data) {
+const onChangePasswordSuccess = function () {
   console.log('onChangePasswordSuccess invoked')
-  console.log('data is', data)
   console.log('assigning store.user = data.user')
-  store.user = data.user
-  console.log('data.user is', store.user)
+  console.log('store.user is', store.user)
+  $('#change-password-form').slideUp('slow')
+  $('#message').text('User ' + store.user.email + ' password successful changed.')
 }
 
 const onSignOutSuccess = function (data) {
