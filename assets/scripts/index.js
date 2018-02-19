@@ -16,6 +16,9 @@ $(() => {
   $('#change-password-form').hide()
   $('#sign-out-button').hide()
   $('#change-password-button').hide()
+  $('#game-actions').hide()
+  $('#start-new-game').hide()
+  $('#get-open-games').hide()
 
   // Click event handlers
   $('#change-password-button').click(ui.showChangePasswordForm)

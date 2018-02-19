@@ -10,6 +10,9 @@ const onSignInSuccess = function (data) {
   $('#sign-in-form').slideUp('slow')
   $('#sign-out-button').slideDown('slow')
   $('#change-password-button').slideDown('slow')
+  $('#game-actions').slideDown('slow')
+  $('#start-new-game').slideDown('slow')
+  $('#get-open-games').slideDown('slow')
   console.log('Setting the message text in the div')
   $('#message').text('User ' + data.user.email + ' is signed in.')
   $('#sign-in-form')[0].reset()
@@ -46,6 +49,9 @@ const onSignOutSuccess = function (data) {
   $('#change-password-button').slideUp('slow')
   $('#change-password-form').slideUp('slow')
   $('#sign-out-button').slideUp('slow')
+  $('#game-actions').slideUp('slow')
+  $('#get-open-games').slideUp('slow')
+  $('#start-new-game').slideUp('slow')
   $('#sign-in-form').slideDown('slow')
 }
 

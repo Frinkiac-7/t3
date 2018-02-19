@@ -14,44 +14,34 @@
 </head>
 
 <body class="container-fluid">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myModal" data-toggle="modal" data-target="#myModal2">Change Password</a></li>
-        <li><a href="#myModal1" data-toggle="modal" data-target="#myModal1">Create Account</a></li>
-        <li><a href="#myModal2" data-toggle="modal" data-target="#myModal">Sign-In</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title">Log-in</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" placeholder="Enter email" type="email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
-          </div>
-          <p class="text-right"><a href="#">Forgot password?</a></p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn">Close</a>
-          <a href="#" class="btn btn-primary">Log-in</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <h1>User Account actions</h1>
-  <div class="container">
+  <div class="container" id="user-actions">
+    <h1 id="user-state">User Sign In</h1>
     <div id="message-window">
       <p id="message"></p>
+      <form id="sign-in-form">
+        <div class="form-group">
+          <p>Sign-in form</p>
+          <label>Enter your email</label>
+          <input name="credentials[email]" type="text" placeholder="an@example.email">
+          <label>Enter your password</label>
+          <input name="credentials[password]" type="password" placeholder="Enter your password">
+          <button type="submit" class="button">Sign In</button>
+          <p>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></p>
+        </div>
+      </form>
+      <form id="sign-up-form">
+        <div class="form-group">
+          <p>Sign-up form</p>
+          <label>Enter your email</label>
+          <input name="credentials[email]" type="text" placeholder="an@example.email">
+          <label>Enter your password</label>
+          <input name="credentials[password]" type="password" placeholder="Enter your password">
+          <label>Enter your password confirmation</label>
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm your password">
+          <button type="submit" class="button">Sign Up</button>
+          <p>Already have an account? <a href="#" id="acctExists">Sign in here!</a></p>
+        </div>
+      </form>
       <form id="change-password-button">
         <div class="form-group">
           <p>Change Password</p>
@@ -75,36 +65,10 @@
           <button type="submit" class="button">Sign Out</button>
         </div>
       </form>
-      <hr>
     </div>
-    <form id="sign-up-form">
-      <div class="form-group">
-        <p>Sign-up form</p>
-        <label>Enter your email</label>
-        <input name="credentials[email]" type="text" placeholder="an@example.email">
-        <label>Enter your password</label>
-        <input name="credentials[password]" type="password" placeholder="Enter your password">
-        <label>Enter your password confirmation</label>
-        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm your password">
-        <button type="submit" class="button">Sign Up</button>
-        <p>Already have an account? <a href="#" id="acctExists">Sign in here!</a></p>
-      </div>
-    </form>
-    <form id="sign-in-form">
-      <div class="form-group">
-        <p>Sign-in form</p>
-        <label>Enter your email</label>
-        <input name="credentials[email]" type="text" placeholder="an@example.email">
-        <label>Enter your password</label>
-        <input name="credentials[password]" type="password" placeholder="Enter your password">
-        <button type="submit" class="button">Sign In</button>
-        <p>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></p>
-      </div>
-    </form>
   </div>
-  <hr>
-  <h1>Game actions</h1>
-  <div class="container">
+  <div class="container" id="game-actions">
+    <h1>Game actions</h1>
     <form id="start-new-game">
       <div class="form-group">
         <p>Start a new game</p>
@@ -117,9 +81,9 @@
         <button type="submit" class="button">Get Open Games</button>
       </div>
     </form>
-  </div>
-  <div id="game-messages">
-    <p id="game-results"></p>
+    <div id="game-messages">
+      <p id="game-results"></p>
+    </div>
   </div>
   <hr>
   <h1 class="align">T3 - The Frinkiac-7 Game of Tic Tac Toe!</h1>
