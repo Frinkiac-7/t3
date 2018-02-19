@@ -12,6 +12,14 @@ const onSignInSuccess = function (data) {
   $('#change-password-button').slideDown('slow')
   console.log('Setting the message text in the div')
   $('#message').text('User ' + data.user.email + ' is signed in.')
+  $('#sign-in-form')[0].reset()
+}
+
+const onSignInFailure = function (data) {
+  console.log('onSignInFailure invoked')
+  console.log('data is', data)
+  $('#sign-in-form')[0].reset()
+  $('#message').text('Sign in failed.  Please try again!')
 }
 
 // Sign up functions
@@ -26,11 +34,15 @@ const onSignUpSuccess = function (data) {
   $('#message').text('User ' + data.user.email + ' successfully created!')
 }
 
+const onSignUpFailure = function (data) {
+  $('#sign-in-form')[0].reset()
+  $('#message').text('Sign up failed.  Please try again!')
+}
+
 // Sign out functions
 const onSignOutSuccess = function (data) {
   console.log('onSignOutSuccess invoked')
-  console.log('data is', data)
-  $('#message').text('Sign into the game to play!')
+  $('#message').text(store.user.email + ' signed out. Sign into the game to play!')
   $('#change-password-button').slideUp('slow')
   $('#change-password-form').slideUp('slow')
   $('#sign-out-button').slideUp('slow')
@@ -43,6 +55,7 @@ const showChangePasswordButton = function () {
 }
 
 const showChangePasswordForm = function () {
+  $('#message').text('Enter your old password and your new password')
   $('#change-password-form').slideDown('slow')
 }
 
@@ -52,6 +65,15 @@ const onChangePasswordSuccess = function () {
   console.log('store.user is', store.user)
   $('#change-password-form').slideUp('slow')
   $('#message').text('User ' + store.user.email + ' password successful changed.')
+  $('#change-password-form')[0].reset()
+}
+
+const onChangePasswordFailure = function () {
+  console.log('onChangePasswordFailure invoked')
+  console.log('assigning store.user = data.user')
+  console.log('store.user is', store.user)
+  $('#message').text('User ' + store.user.email + ' password change failed.  Please try again.')
+  $('#change-password-form')[0].reset()
 }
 
 // Game functions
@@ -74,8 +96,11 @@ module.exports = {
   showChangePasswordForm,
   showChangePasswordButton,
   onSignUpSuccess,
+  onSignUpFailure,
   onSignInSuccess,
+  onSignInFailure,
   onChangePasswordSuccess,
+  onChangePasswordFailure,
   onSignOutSuccess,
   onGetGames,
   onNewGameSuccess

@@ -10,9 +10,23 @@ const onSignIn = function (event) {
   console.log('onSignIn invoked')
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
-  api.onSignIn(userForm)
-    .then($('#sign-in-form')[0].reset())
-    .then(ui.onSignInSuccess)
+  if (userForm.credentials.email === '' && userForm.credentials.password === '') {
+    console.log('Login fields are blank')
+    $('#message').text('Login fields can\'t be blank.  Please enter an email address and password.')
+    $('#sign-in-form')[0].reset()
+  } else if (userForm.credentials.email === '') {
+    console.log('Email field is blank')
+    $('#message').text('Email can\'t be blank.  Please enter an email address.')
+    $('#sign-in-form')[0].reset()
+  } else if (userForm.credentials.password === '') {
+    console.log('Password field is blank')
+    $('#message').text('Password can\'t be blank.  Please enter a password.')
+    $('#sign-in-form')[0].reset()
+  } else {
+    api.onSignIn(userForm)
+      .then(ui.onSignInSuccess)
+      .catch(ui.onSignInFailure)
+  }
 }
 
 const onAcctExists = function (event) {
@@ -27,9 +41,23 @@ const onSignUp = function (event) {
   console.log('onSignUp invoked')
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
-  api.onSignUp(userForm)
-    .then($('#sign-up-form')[0].reset())
-    .then(ui.onSignUpSuccess)
+  if (userForm.credentials.password !== userForm.credentials.password_confirmation) {
+    console.log('password mismatch IF invoked')
+    $('#message').text('Your passwords didn\'t match. Please try again')
+    $('#sign-up-form')[0].reset()
+  } else if (userForm.credentials.email === '') {
+    console.log('email missing ELSE IF invoked')
+    $('#message').text('The email field can\'t be blank. Please try again')
+    $('#sign-up-form')[0].reset()
+  // } else if (userForm.credentials.password || userForm.credentials.password_confirmation === '') {
+  //   console.log('password(s) are blank ELSE IF invoked')
+  //   $('#message').text('One or more passwords was blank. Please try again')
+  //   $('#sign-up-form')[0].reset()
+  } else {
+    api.onSignUp(userForm)
+      .then(ui.onSignUpSuccess)
+      .catch(ui.onSignUpFailure)
+  }
 }
 
 const onAcctNew = function (event) {
@@ -55,11 +83,32 @@ const onChangePassword = function (event) {
   console.log('onChangePassword invoked')
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
-  api.onChangePassword(userForm)
-    .then($('#change-password-form')[0].reset())
-    .then(ui.onChangePasswordSuccess)
+  if (userForm.passwords.old === '' && userForm.passwords.new === '') {
+    console.log('onChangePassword if old and new are blank invoked')
+    console.log('Form fields are blank')
+    $('#message').text('Password fields can\'t be blank.  Please enter your old password and new passwords.')
+    $('#change-password-form')[0].reset()
+  } else if (userForm.passwords.old === '') {
+    console.log('onChangePassword if old password is blank invoked')
+    console.log('Old password field is blank')
+    $('#message').text('Old password field can\'t be blank.  Please enter your old password and new passwords.')
+    $('#change-password-form')[0].reset()
+  } else if (userForm.passwords.new === '') {
+    console.log('onChangePassword if new password is blank invoked')
+    console.log('New password field is blank')
+    $('#message').text('New password field can\'t be blank.  Please enter your old password and new passwords.')
+    $('#change-password-form')[0].reset()
+  } else {
+    api.onChangePassword(userForm)
+      .then(ui.onChangePasswordSuccess)
+      .catch(ui.onChangePasswordFailure)
+  }
 }
 
+const onCancelChangePassword = function () {
+  $('#message').text('Change password cancelled')
+  $('#change-password-form').slideUp('slow')
+}
 // Game functions
 const onClick = function (event) {
   event.preventDefault()
@@ -90,6 +139,7 @@ module.exports = {
   onSignIn,
   onSignOut,
   onChangePassword,
+  onCancelChangePassword,
   onNewGame,
   onGetGames,
   onClick

@@ -19,6 +19,7 @@ $(() => {
 
   // Click event handlers
   $('#change-password-button').click(ui.showChangePasswordForm)
+  $('#cancel-password-change').click(events.onCancelChangePassword)
   $('#acctNew').click(events.onAcctNew)
   $('#acctExists').click(events.onAcctExists)
   // for (let x = 0; x < 3; x++) {
