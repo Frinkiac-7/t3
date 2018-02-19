@@ -85,11 +85,16 @@ const onNewGameSuccess = function (data) {
   console.log('Value of store.game AFTER assignment is', store.game)
 }
 
-const onGetGames = function (data) {
-  console.log('api.onGetGames invoked')
+const onGetOpenGames = function (data) {
+  console.log('api.onGetOpenGames invoked')
   console.log('data is', data)
-  store.game = data
-  console.log('store.game: ', store.game)
+  store.history = data
+  console.log('store.history: ', store.history)
+  console.log('store.history.games[0]: ', store.history.games[0])
+  $('#game-results').text('')
+  const game = store.history.games.length
+  $('#game-results').text('Store.history.games.length should print here ' + game)
+  // $('#game-results').text('Store.game length is ', store.game.games.length)
 }
 
 module.exports = {
@@ -102,6 +107,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onGetGames,
+  onGetOpenGames,
   onNewGameSuccess
 }

@@ -90,8 +90,8 @@ const updateGameAPI = function (data) {
   })
 }
 
-const onGetGames = function (data) {
-  console.log('api.onGetGames invoked')
+const onGetOpenGames = function (data) {
+  console.log('api.onGetOpenGames invoked')
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'GET',
@@ -108,6 +108,6 @@ module.exports = {
   onChangePassword,
   onNewGame,
   updateGameAPI,
-  onGetGames,
+  onGetOpenGames,
   onSignOut
 }

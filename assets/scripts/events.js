@@ -125,11 +125,11 @@ const onNewGame = function (event) {
     .then(console.log('store.game is', store.game))
 }
 
-const onGetGames = function (event) {
+const onGetOpenGames = function (event) {
   event.preventDefault()
   console.log('events.onGetGames invoked')
-  api.onGetGames()
-    .then(ui.onGetGames)
+  api.onGetOpenGames()
+    .then(ui.onGetOpenGames)
 }
 
 module.exports = {
@@ -141,6 +141,6 @@ module.exports = {
   onChangePassword,
   onCancelChangePassword,
   onNewGame,
-  onGetGames,
+  onGetOpenGames,
   onClick
 }

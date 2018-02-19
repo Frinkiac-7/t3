@@ -2,7 +2,7 @@
 
 # ID=2 sh scripts/sign-out.sh
 
-curl "https://aqueous-atoll-85096.herokuapp.com/games/" \
+curl "http://tic-tac-toe.wdibos.com/games/" \
   --include \
   --request GET \
   --header "Content-Type: application/json" \

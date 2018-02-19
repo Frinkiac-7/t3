@@ -44,5 +44,5 @@ $(() => {
   $('#change-password-form').submit(events.onChangePassword)
   $('#sign-out-button').submit(events.onSignOut)
   $('#start-new-game').submit(events.onNewGame)
-  $('#get-games').submit(events.onGetGames)
+  $('#get-open-games').submit(events.onGetOpenGames)
 })

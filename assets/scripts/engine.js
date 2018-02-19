@@ -176,7 +176,7 @@ const playerMove = function (gridPos) {
   console.log('store.game.cells[0] is', store.game.cells[0])
   console.log('gridPos is', gridPos)
   console.log('store.game.cells[gameObject.gridPos.arrayIndex] is', store.game.cells[gameObject[gridPos].arrayIndex])
-//  while (gameArray.includes('!')) {
+  //  while (gameArray.includes('!')) {
   while (store.game.cells.includes('')) {
     if (isEven(moveCount)) {
       // Even moveCounts are player X
@@ -210,10 +210,10 @@ const recordMove = function (player, gridPos) {
   console.log('gameObject[gridPos].arrayIndex is', gameObject[gridPos].arrayIndex)
   const index = gameObject[gridPos].arrayIndex
   console.log('index is', index)
-//  store.game.cells[index] = player
+  //  store.game.cells[index] = player
   console.log('store.game.cells is', store.game.cells)
   console.log('store.game.cells[' + index + '] is', store.game.cells[index])
-//  if (gameObject[gridPos].value === '!') {
+  //  if (gameObject[gridPos].value === '!') {
   if (store.game.cells[index] === '') {
     const indexString = index.toString()
     if (indexString === 8) {
