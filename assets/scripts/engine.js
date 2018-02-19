@@ -9,6 +9,16 @@ let gameArray = ['!', '!', '!', '!', '!', '!', '!', '!', '!']
 let moveCount = 0
 
 // Main game logic repository
+const setBoard = function () {
+  $('#game-board').slideDown('slow')
+  for (let x = 0; x < 3; x++) {
+    for (let y = 0; y < 3; y++) {
+      console.log('gridPosXY is: ' + 'gridPos' + x + y)
+      $('#gridPos' + x + y).text('PICK ME')
+    }
+  }
+}
+
 let gameObject = {
   'gridPos00': {
     'name': 'gridPos00',
@@ -173,7 +183,6 @@ const playerMove = function (gridPos) {
   // update the gameArray and gameObject
   // Checks to make sure there are still available moves
   console.log('store.game is', store.game)
-  console.log('store.game.cells[0] is', store.game.cells[0])
   console.log('gridPos is', gridPos)
   console.log('store.game.cells[gameObject.gridPos.arrayIndex] is', store.game.cells[gameObject[gridPos].arrayIndex])
   //  while (gameArray.includes('!')) {
@@ -238,13 +247,13 @@ const recordMove = function (player, gridPos) {
     gameArray[gameObject[gridPos].arrayIndex] = player
     // Update the DOM to indicate the space has been selected
     // $('#' + gridPos).text(player + ' takes the square')
-    $('#' + gridPos).attr('src', 'https://i.imgur.com/PYVoMNB.jpg')
+    $('#' + gridPos).text(player)
   } else { // Will only execute if grid position is anything but "!"
     // Reduce moveCount to allow current player to try again
     --moveCount
     // Update the DOM to let current player know who already owns that square
     // $('#' + gridPos).text(gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
-    $('#' + gridPos).attr('src', 'https://i.imgur.com/0eXPHuG.jpg')
+    $('#' + gridPos).text('D\'OH!!! Player ' + player + ' already picked this square!')
   }
 }
 
@@ -258,5 +267,6 @@ module.exports = {
   isEven,
   playerMove,
   gameObject,
+  setBoard,
   gameArray
 }

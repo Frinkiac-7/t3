@@ -52,6 +52,7 @@ const onSignOutSuccess = function (data) {
   $('#game-actions').slideUp('slow')
   $('#get-open-games').slideUp('slow')
   $('#start-new-game').slideUp('slow')
+  $('#game-board').slideUp('slow')
   $('#sign-in-form').slideDown('slow')
 }
 

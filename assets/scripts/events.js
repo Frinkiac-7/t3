@@ -109,6 +109,7 @@ const onCancelChangePassword = function () {
   $('#message').text('Change password cancelled')
   $('#change-password-form').slideUp('slow')
 }
+
 // Game functions
 const onClick = function (event) {
   event.preventDefault()
@@ -123,6 +124,7 @@ const onNewGame = function (event) {
   api.onNewGame(store.user.token)
     .then(ui.onNewGameSuccess)
     .then(console.log('store.game is', store.game))
+    .then(engine.setBoard)
 }
 
 const onGetOpenGames = function (event) {
