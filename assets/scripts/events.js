@@ -11,6 +11,7 @@ const onSignIn = function (event) {
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
   api.onSignIn(userForm)
+    .then($('#sign-in-form')[0].reset())
     .then(ui.onSignInSuccess)
 }
 
@@ -27,6 +28,7 @@ const onSignUp = function (event) {
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
   api.onSignUp(userForm)
+    .then($('#sign-up-form')[0].reset())
     .then(ui.onSignUpSuccess)
 }
 
@@ -54,6 +56,7 @@ const onChangePassword = function (event) {
   const userForm = getFormFields(this)
   console.log('userForm is', userForm)
   api.onChangePassword(userForm)
+    .then($('#change-password-form')[0].reset())
     .then(ui.onChangePasswordSuccess)
 }
 

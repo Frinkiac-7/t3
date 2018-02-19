@@ -30,6 +30,11 @@ const onSignUpSuccess = function (data) {
 const onSignOutSuccess = function (data) {
   console.log('onSignOutSuccess invoked')
   console.log('data is', data)
+  $('#message').text('Sign into the game to play!')
+  $('#change-password-button').slideUp('slow')
+  $('#change-password-form').slideUp('slow')
+  $('#sign-out-button').slideUp('slow')
+  $('#sign-in-form').slideDown('slow')
 }
 
 // Password functions
