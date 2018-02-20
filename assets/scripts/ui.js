@@ -32,7 +32,9 @@ const onSignUpSuccess = function (data) {
   console.log('assigning store.user = data.user')
   store.user = data.user
   console.log('data.user is', store.user)
+  $('#sign-up-form')[0].reset()
   $('#sign-up-form').slideUp('slow')
+  $('#sign-in-form')[0].reset()
   $('#sign-in-form').slideDown('slow')
   $('#message').text('User ' + data.user.email + ' successfully created!')
 }
