@@ -58,10 +58,12 @@ const onSignOutSuccess = function (data) {
 
 // Password functions
 const showChangePasswordButton = function () {
+  event.preventDefault()
   $('#showChangePassword').slideDown('slow')
 }
 
 const showChangePasswordForm = function () {
+  event.preventDefault()
   $('#message').text('Enter your old password and your new password')
   $('#change-password-form').slideDown('slow')
 }
