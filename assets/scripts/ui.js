@@ -88,12 +88,13 @@ const onChangePasswordFailure = function () {
 }
 
 // Game functions
-const onNewGameSuccess = function (data) {
-  console.log('onNewGameSuccess invoked')
-  console.log('return game object data is', data)
-  console.log('Value of store.game BEFORE assignment is', store.game)
+const onStartNewGameSuccess = function (data) {
   store.game = data.game
-  console.log('Value of store.game AFTER assignment is', store.game)
+  $('#message').text('Game #' + store.game.id + ' started!  Good luck!')
+}
+
+const onStartNewGameFailure = function () {
+  $('#message').text('Error encountered starting a new game.  Please try again.')
 }
 
 const onGetOpenGames = function (data) {
@@ -119,5 +120,6 @@ module.exports = {
   onChangePasswordFailure,
   onSignOutSuccess,
   onGetOpenGames,
-  onNewGameSuccess
+  onStartNewGameSuccess,
+  onStartNewGameFailure
 }

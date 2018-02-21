@@ -63,9 +63,7 @@ const onChangePassword = function (data) {
 }
 
 // Game functions
-const onNewGame = function (token) {
-  console.log('api.onNewGame invoked')
-  console.log('token is', token)
+const onStartNewGame = function (token) {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -85,6 +83,10 @@ const updateGameAPI = function (data) {
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
+    },
+    success: function (response) {
+      console.log('AJAX response from game server', response)
+      return response
     },
     data
   })
@@ -106,7 +108,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onNewGame,
+  onStartNewGame,
   updateGameAPI,
   onGetOpenGames,
   onSignOut

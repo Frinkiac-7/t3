@@ -3,7 +3,7 @@ const api = require('./api')
 
 // Sole purpose is for the while loop in playerMove to determine if there are
 // any moves available
-let gameArray = ['!', '!', '!', '!', '!', '!', '!', '!', '!']
+// let gameArray = ['!', '!', '!', '!', '!', '!', '!', '!', '!']
 
 // Keep track of whose turn it is.  Even numbers are X, odd numbers are O
 let moveCount = 0
@@ -13,7 +13,6 @@ const setBoard = function () {
   $('#game-board').slideDown('slow')
   for (let x = 0; x < 3; x++) {
     for (let y = 0; y < 3; y++) {
-      console.log('gridPosXY is: ' + 'gridPos' + x + y)
       $('#gridPos' + x + y).text('PICK ME')
     }
   }
@@ -119,6 +118,7 @@ const isO = function (element) {
 // Check the diagonals for win by X or O
 const checkDiagonal = function () {
   console.log('checkDiagonal invoke')
+  // let testArray = [gameObject['gridPos00'].value, gameObject['gridPos11'].value, gameObject['gridPos22'].value]
   let testArray = [gameObject['gridPos00'].value, gameObject['gridPos11'].value, gameObject['gridPos22'].value]
   if (testArray.every(isX) === true) {
     console.log('checkDiagonal first array')
@@ -182,11 +182,12 @@ const playerMove = function (gridPos) {
   // Sets who is currently playing and invokes the recordMove function to
   // update the gameArray and gameObject
   // Checks to make sure there are still available moves
-  console.log('store.game is', store.game)
-  console.log('gridPos is', gridPos)
-  console.log('store.game.cells[gameObject.gridPos.arrayIndex] is', store.game.cells[gameObject[gridPos].arrayIndex])
+  // console.log('store.game.cells[gameObject.gridPos.arrayIndex] is', store.game.cells[gameObject[gridPos].arrayIndex])
   //  while (gameArray.includes('!')) {
   while (store.game.cells.includes('')) {
+    if (moveCount >= 5) {
+      checkForWin()
+    }
     if (isEven(moveCount)) {
       // Even moveCounts are player X
       const player = 'X'
@@ -201,7 +202,6 @@ const playerMove = function (gridPos) {
       return
     }
   }
-  checkForWin()
 }
 
 const isEven = function (num) {
@@ -215,41 +215,28 @@ const isEven = function (num) {
 }
 
 const recordMove = function (player, gridPos) {
-  // Check if the selected grid position is available ("!" means available)
-  console.log('gameObject[gridPos].arrayIndex is', gameObject[gridPos].arrayIndex)
+  // Check if the selected grid position is available ('' means available)
   const index = gameObject[gridPos].arrayIndex
-  console.log('index is', index)
-  //  store.game.cells[index] = player
-  console.log('store.game.cells is', store.game.cells)
-  console.log('store.game.cells[' + index + '] is', store.game.cells[index])
-  //  if (gameObject[gridPos].value === '!') {
   if (store.game.cells[index] === '') {
-    const indexString = index.toString()
-    if (indexString === 8) {
-      console.log('indexString if invoked')
-      const over = true
-    }
-    // Update the gameObject value and player properties with current player info
+    store.game.cells[index] = player
     const data = {
       'game': {
         'cell': {
           'index': index,
-          'value': player
-        },
-        over: false
+          'value': player,
+          'over': false
+        }
       }
     }
-    store.game.cells[index] = player
-    gameObject[gridPos].value = player
-    gameObject[gridPos].player = player
     api.updateGameAPI(data)
-    // Update the gameArray (see playerMove while loop comment)
-    gameArray[gameObject[gridPos].arrayIndex] = player
-    // Update the DOM to indicate the space has been selected
-    // $('#' + gridPos).text(player + ' takes the square')
     $('#' + gridPos).text(player)
   } else { // Will only execute if grid position is anything but "!"
     // Reduce moveCount to allow current player to try again
+    if (isEven(moveCount)) {
+      player = 'O'
+    } else {
+      player = 'X'
+    }
     --moveCount
     // Update the DOM to let current player know who already owns that square
     // $('#' + gridPos).text(gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
@@ -267,6 +254,6 @@ module.exports = {
   isEven,
   playerMove,
   gameObject,
-  setBoard,
-  gameArray
+  setBoard
+  // gameArray
 }

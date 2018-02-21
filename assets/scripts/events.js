@@ -31,7 +31,9 @@ const onSignIn = function (event) {
 
 const onAcctExists = function (event) {
   event.preventDefault()
+  $('#sign-up-form')[0].reset()
   $('#sign-up-form').slideUp('slow')
+  $('#sign-in-form')[0].reset()
   $('#sign-in-form').slideDown('slow')
 }
 
@@ -119,18 +121,16 @@ const onClick = function (event) {
   engine.playerMove(gridPos)
 }
 
-const onNewGame = function (event) {
+const onStartNewGame = function (event) {
   event.preventDefault()
-  console.log('onNewGame invoked')
-  api.onNewGame(store.user.token)
-    .then(ui.onNewGameSuccess)
-    .then(console.log('store.game is', store.game))
+  api.onStartNewGame(store.user.token)
+    .then(ui.onStartNewGameSuccess)
     .then(engine.setBoard)
+    .catch(ui.onStartNewGameFailure)
 }
 
 const onGetOpenGames = function (event) {
   event.preventDefault()
-  console.log('events.onGetGames invoked')
   api.onGetOpenGames()
     .then(ui.onGetOpenGames)
 }
@@ -143,7 +143,7 @@ module.exports = {
   onSignOut,
   onChangePassword,
   onCancelChangePassword,
-  onNewGame,
+  onStartNewGame,
   onGetOpenGames,
   onClick
 }
