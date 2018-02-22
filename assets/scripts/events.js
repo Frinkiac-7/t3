@@ -109,6 +109,7 @@ const onChangePassword = function (event) {
 
 const onCancelChangePassword = function () {
   event.preventDefault()
+  $('#change-password-form')[0].reset()
   $('#message').text('Change password cancelled')
   $('#change-password-form').slideUp('slow')
 }
