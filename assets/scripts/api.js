@@ -76,6 +76,8 @@ const onStartNewGame = function (token) {
 
 const updateGameAPI = function (data) {
   console.log('api.updateGameAPI invoked')
+  console.log('store.game.id is', store.game.id)
+  console.log('store.user.token is', store.user.token)
   console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
@@ -84,9 +86,19 @@ const updateGameAPI = function (data) {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
     },
-    success: function (response) {
-      console.log('AJAX response from game server', response)
-      return response
+    data
+  })
+}
+
+
+const updateGameOver = function (data) {
+  console.log('api.updateGameOver invoked')
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
     },
     data
   })
@@ -110,6 +122,7 @@ module.exports = {
   onChangePassword,
   onStartNewGame,
   updateGameAPI,
+  updateGameOver,
   onGetOpenGames,
   onSignOut
 }

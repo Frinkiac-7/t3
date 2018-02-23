@@ -90,6 +90,7 @@ const onChangePasswordFailure = function () {
 // Game functions
 const onStartNewGameSuccess = function (data) {
   store.game = data.game
+  console.log('store.game is', store.game)
   $('#message').text('Game #' + store.game.id + ' started!  Good luck!')
 }
 
@@ -105,7 +106,7 @@ const onGetOpenGames = function (data) {
   console.log('store.history.games[0]: ', store.history.games[0])
   $('#game-results').text('')
   const game = store.history.games.length
-  $('#game-results').text('Store.history.games.length should print here ' + game)
+  $('#game-results').text('You have played ' + game + ' games!')
   // $('#game-results').text('Store.game length is ', store.game.games.length)
 }
 

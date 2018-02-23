@@ -1,13 +1,13 @@
 #!/bin/bash
 
-curl --include --request PATCH "https://aqueous-atoll-85096.herokuapp.com/games/${ID}" \
+curl --include --request PATCH "http://tic-tac-toe.wdibos.com/games/${ID}" \
   --header "Content-type: application/json" \
   --header "Authorization: Token token="${TOKEN} \
   --data '{
     "game": {
       "cell": {
         "index": 0,
-        "value": "x"
+        "value": "X"
       },
       "over": true
     }
