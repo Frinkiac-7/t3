@@ -90,20 +90,6 @@ const updateGameAPI = function (data) {
   })
 }
 
-
-const updateGameOver = function (data) {
-  console.log('api.updateGameOver invoked')
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: {
-      contentType: 'application/json',
-      Authorization: 'Token token=' + store.user.token
-    },
-    data
-  })
-}
-
 const onGetOpenGames = function (data) {
   console.log('api.onGetOpenGames invoked')
   return $.ajax({
