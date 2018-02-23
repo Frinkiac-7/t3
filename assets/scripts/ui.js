@@ -2,36 +2,25 @@ const store = require('./store')
 
 // Sign in functions
 const onSignInSuccess = function (data) {
-  console.log('onSignInSuccess invoked')
-  console.log('data in ui.onSignInSuccess is', data)
-  console.log('assigning store.user = data.user')
   store.user = data.user
-  console.log('store.user is', store.user)
   $('#sign-in-form').slideUp('slow')
   $('#sign-out-button').slideDown('slow')
   $('#change-password-button').slideDown('slow')
   $('#game-actions').slideDown('slow')
   $('#start-new-game').slideDown('slow')
   $('#get-open-games').slideDown('slow')
-  console.log('Setting the message text in the div')
   $('#message').text('User ' + data.user.email + ' is signed in.')
   $('#sign-in-form')[0].reset()
 }
 
 const onSignInFailure = function (data) {
-  console.log('onSignInFailure invoked')
-  console.log('data is', data)
   $('#sign-in-form')[0].reset()
   $('#message').text('Sign in failed.  Please try again!')
 }
 
 // Sign up functions
 const onSignUpSuccess = function (data) {
-  console.log('onSignUpSuccess invoked')
-  console.log('data is', data)
-  console.log('assigning store.user = data.user')
   store.user = data.user
-  console.log('data.user is', store.user)
   $('#sign-up-form')[0].reset()
   $('#sign-up-form').slideUp('slow')
   $('#sign-in-form')[0].reset()
@@ -46,7 +35,6 @@ const onSignUpFailure = function (data) {
 
 // Sign out functions
 const onSignOutSuccess = function (data) {
-  console.log('onSignOutSuccess invoked')
   $('#message').text(store.user.email + ' signed out. Sign into the game to play!')
   $('#change-password-button').slideUp('slow')
   $('#change-password-form').slideUp('slow')
@@ -71,18 +59,12 @@ const showChangePasswordForm = function () {
 }
 
 const onChangePasswordSuccess = function () {
-  console.log('onChangePasswordSuccess invoked')
-  console.log('assigning store.user = data.user')
-  console.log('store.user is', store.user)
   $('#change-password-form').slideUp('slow')
   $('#message').text('User ' + store.user.email + ' password successful changed.')
   $('#change-password-form')[0].reset()
 }
 
 const onChangePasswordFailure = function () {
-  console.log('onChangePasswordFailure invoked')
-  console.log('assigning store.user = data.user')
-  console.log('store.user is', store.user)
   $('#message').text('User ' + store.user.email + ' password change failed.  Please try again.')
   $('#change-password-form')[0].reset()
 }
@@ -90,7 +72,6 @@ const onChangePasswordFailure = function () {
 // Game functions
 const onStartNewGameSuccess = function (data) {
   store.game = data.game
-  console.log('store.game is', store.game)
   $('#message').text('Game #' + store.game.id + ' started!  Good luck!')
 }
 
@@ -99,11 +80,7 @@ const onStartNewGameFailure = function () {
 }
 
 const onGetOpenGames = function (data) {
-  console.log('api.onGetOpenGames invoked')
-  console.log('data is', data)
   store.history = data
-  console.log('store.history: ', store.history)
-  console.log('store.history.games[0]: ', store.history.games[0])
   $('#game-results').text('')
   const game = store.history.games.length
   $('#game-results').text('You have played ' + game + ' games!')

@@ -3,8 +3,6 @@ const store = require('./store')
 
 // Sign in functions
 const onSignIn = function (data) {
-  console.log('api.onSignIn invoked')
-  console.log('data parameter is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
@@ -17,8 +15,6 @@ const onSignIn = function (data) {
 
 // Sign up functions
 const onSignUp = function (data) {
-  console.log('api.onSignUp invoked')
-  console.log('data parameter is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
@@ -31,9 +27,6 @@ const onSignUp = function (data) {
 
 // Sign out functions
 const onSignOut = function (data) {
-  console.log('data is', data)
-  console.log('store.user.id is', store.user.id)
-  console.log('store.user.token is', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
@@ -47,10 +40,6 @@ const onSignOut = function (data) {
 
 // Password functions
 const onChangePassword = function (data) {
-  console.log('data is', data)
-  console.log('store.user.token is', store.user.token)
-  console.log('data.passwords.old is', data.passwords.old)
-  console.log('data.passwords.new is', data.passwords.new)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -75,10 +64,6 @@ const onStartNewGame = function (token) {
 }
 
 const updateGameAPI = function (data) {
-  console.log('api.updateGameAPI invoked')
-  console.log('store.game.id is', store.game.id)
-  console.log('store.user.token is', store.user.token)
-  console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
@@ -91,7 +76,6 @@ const updateGameAPI = function (data) {
 }
 
 const onGetOpenGames = function (data) {
-  console.log('api.onGetOpenGames invoked')
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'GET',

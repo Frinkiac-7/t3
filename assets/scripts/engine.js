@@ -101,13 +101,6 @@ const checkForWin = function (index, player) {
   checkDiagonal(winStatus)
   checkRow(winStatus)
   checkCol(winStatus)
-  // if (winStatus === false) {
-  //   $('#message').text('It was a DRAW!!!  BOOOOO!!! Click the "Start New Game" to play again!')
-  //   $('#game-board').slideUp('slow')
-  // }
-
-  // store.game.over = true
-//  console.log('game status is (store.game.over)', store.game.over)
 }
 
 // call back function for the game result checking functions
@@ -130,7 +123,7 @@ const checkDiagonal = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -152,7 +145,7 @@ const checkDiagonal = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -173,7 +166,7 @@ const checkDiagonal = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -193,7 +186,7 @@ const checkDiagonal = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -219,7 +212,7 @@ const checkRow = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -239,7 +232,7 @@ const checkRow = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -259,7 +252,7 @@ const checkRow = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -279,7 +272,7 @@ const checkRow = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -299,7 +292,7 @@ const checkRow = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -319,7 +312,7 @@ const checkRow = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -345,7 +338,7 @@ const checkCol = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -365,7 +358,7 @@ const checkCol = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -385,7 +378,7 @@ const checkCol = function (winStatus) {
     console.log('X WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -405,7 +398,7 @@ const checkCol = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -425,7 +418,7 @@ const checkCol = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -445,7 +438,7 @@ const checkCol = function (winStatus) {
     console.log('O WINS!!!!')
     console.log('testArray is', testArray)
     $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    // $('#game-board').slideUp('slow')
+    $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
     const player = store.game.cells[0]
@@ -526,7 +519,6 @@ const isEven = function (num) {
 }
 
 const recordMove = function (index, player, gridPos) {
-  console.log('recordMove invoked')
   // Check if the selected grid position is available ('' means available)
   if (store.game.cells[index] === '') {
     store.game.cells[index] = player
@@ -539,7 +531,6 @@ const recordMove = function (index, player, gridPos) {
         }
       }
     }
-    console.log('invoking api.updateGameAPI from recordMove')
     api.updateGameAPI(data)
     $('#' + gridPos).text(player)
   } else { // Will only execute if grid position is anything but "!"
