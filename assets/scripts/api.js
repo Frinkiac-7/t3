@@ -108,7 +108,6 @@ module.exports = {
   onChangePassword,
   onStartNewGame,
   updateGameAPI,
-  updateGameOver,
   onGetOpenGames,
   onSignOut
 }
