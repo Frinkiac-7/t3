@@ -39,7 +39,7 @@ Additional features to be added in upcoming releases
 -   `Feature: Previous Game Retrieval`:  Currently, there's no way to abandon/pause a game and then get back to it later or see the results of a previously played game. I'd like to enhance the game to allow for both.
 
 ## Development Process
-The development process was convoluted though it shouldn't have been (you can read more about that in the ### Project Story below).  The planned approach was as follows:
+The development process was convoluted though it shouldn't have been (you can read more about that in the `Project Story` below).  The planned approach was as follows:
 
   1) Establish a plan and wireframes
   2) Code the base game logic
