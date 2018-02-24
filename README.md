@@ -41,7 +41,7 @@ Additional features to be added in upcoming releases
 ## Development Process
 The development process was convoluted though it shouldn't have been (you can read more about that in the `Project Story` below).  The planned approach was as follows:
 
-  1) Establish a plan and wireframes
+  1) Establish a plan and wireframes (https://github.com/Frinkiac-7/t3/tree/master/project_docs)
   2) Code the base game logic
   2) Code the user authentication
   3) Code the UI
