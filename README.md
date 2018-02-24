@@ -14,7 +14,7 @@ The app includes the following capabilities:
   5) Start game button to begin playing
   6) See games played button to get a count of how many times you've played
 
-## Tech
+## Languages and Platforms Used
 
 The app is written using the following languages and platforms:
 
