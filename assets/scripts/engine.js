@@ -62,7 +62,7 @@ const checkForWin = function (index, player) {
   // } else if (store.game.over === 'false') {
   // } else {
   if (moveCount > 8) {
-    $('#message').text('LINE 65: A DRAW!?!?!  BOOOOO!!! You better click the "Start New Game" to try again!')
+    $('#message').text('A DRAW!?!?!  BOOOOO!!! You better click the "Start New Game" to try again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -96,7 +96,7 @@ const isO = function (element) {
 const checkDiagonal = function () {
   let testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') {
-    $('#message').text('LINE 99: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -114,7 +114,7 @@ const checkDiagonal = function () {
   }
   testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'X' && store.game.cells[4] === 'X' && store.game.cells[2] === 'X') {
-    $('#message').text('LINE 117: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -132,7 +132,7 @@ const checkDiagonal = function () {
   }
   testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') {
-    $('#message').text('LINE 135: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -150,7 +150,7 @@ const checkDiagonal = function () {
   }
   testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'O' && store.game.cells[4] === 'O' && store.game.cells[2] === 'O') {
-    $('#message').text('LINE 153: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -173,7 +173,7 @@ const checkRow = function () {
   // testArray simply stores the values of each row
   let testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
   if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
-    $('#message').text('LINE 176: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -191,7 +191,7 @@ const checkRow = function () {
   }
   testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
   if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
-    $('#message').text('LINE 194: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -209,7 +209,7 @@ const checkRow = function () {
   }
   testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
   if (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') {
-    $('#message').text('LINE 212: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -227,7 +227,7 @@ const checkRow = function () {
   }
   testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
   if (store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') {
-    $('#message').text('LINE 230: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -245,7 +245,7 @@ const checkRow = function () {
   }
   testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
   if (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') {
-    $('#message').text('LINE 248: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -263,7 +263,7 @@ const checkRow = function () {
   }
   testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
   if (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') {
-    $('#message').text('LINE 266: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -286,7 +286,7 @@ const checkCol = function () {
   // testArray simply stores the values of each row
   let testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
   if (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') {
-    $('#message').text('LINE 289: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -304,7 +304,7 @@ const checkCol = function () {
   }
   testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
   if (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') {
-    $('#message').text('LINE 307: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -322,7 +322,7 @@ const checkCol = function () {
   }
   testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
   if (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') {
-    $('#message').text('LINE 325: X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -340,7 +340,7 @@ const checkCol = function () {
   }
   testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
   if (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') {
-    $('#message').text('LINE 343: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -358,7 +358,7 @@ const checkCol = function () {
   }
   testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
   if (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') {
-    $('#message').text('LINE 361: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -376,7 +376,7 @@ const checkCol = function () {
   }
   testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
   if (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') {
-    $('#message').text('LINE 379: O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
