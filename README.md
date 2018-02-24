@@ -26,15 +26,15 @@ The app is written using the following languages and platforms:
   6) Services from GitHub.com and GitHub.io
   7) git for versioning
 
-## Future Plans/TODO
+## Issues & Planned Feature Enhancements
 
 Additional features to be added in upcoming releases
 
--   `TODO:  Code refactoring`:  As it's my first web application there was a steep learning curve to tackle.  As a result, the code base is not DRY, modular, or anything resembling good practices.  Therefore, the first task for the next release is to address this situation.
+-   `Issue:  Code refactoring`:  As it's my first web application there was a steep learning curve to tackle.  As a result, the code base is not DRY, modular, or anything resembling good practices.  Therefore, the first task for the next release is to address this situation.
 
--   `TODO:  Better Styling`:  The first release of the game has no real styling to speak of due to the many challenges encountered just to get this far.  This clearly needs to be addressed in the next version after refactoring.
+-   `Issue:  Better Styling`:  The first release of the game has no real styling to speak of due to the many challenges encountered just to get this far.  This clearly needs to be addressed in the next version after refactoring.
 
--   `Feature: Enhanced Game Stats`:  I'd like to improve the historical game information available to the user.  As of this release, the user only gets total number games.  Going forward, I'd like to be able to add win/loss/draw percentages.
+-   `Feature: Better Game Stats`:  I'd like to improve the historical game information available to the user.  As of this release, the user only gets total number games.  Going forward, I'd like to be able to add win/loss/draw percentages.
 
 -   `Feature: Previous Game Retrieval`:  Currently, there's no way to abandon/pause a game and then get back to it later or see the results of a previously played game. I'd like to enhance the game to allow for both.
 
