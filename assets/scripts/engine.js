@@ -19,88 +19,65 @@ const setBoard = function () {
   }
 }
 
-let gameObject = {
+// Originally designed when game API wasn't clear during project.  Remains as a
+// useful tool for the win checking functions and translation between div id
+// and API array index
+const gameObject = {
   'gridPos00': {
-    'name': 'gridPos00',
-    'player': 'unassigned', // identify player X or O (same as value)
-    'arrayIndex': 0, // currently unused.  DELETE BEFORE SUBMISSION IF UNNECESSARY
-    'row': 0, // grid coord of name attribute
-    'column': 0, // grid coord of name attribute
-    'value': '' // X or O at position identified by name attribute
+    'arrayIndex': 0
   },
   'gridPos01': {
-    'name': 'gridPos01',
-    'player': 'unassigned',
-    'arrayIndex': 1,
-    'row': 0,
-    'column': 1,
-    'value': ''
+    'arrayIndex': 1
   },
   'gridPos02': {
-    'name': 'gridPos02',
-    'player': 'unassigned',
-    'arrayIndex': 2,
-    'row': 0,
-    'column': 2,
-    'value': ''
+    'arrayIndex': 2
   },
   'gridPos10': {
-    'name': 'gridPos10',
-    'player': 'unassigned',
-    'arrayIndex': 3,
-    'row': 1,
-    'column': 0,
-    'value': ''
+    'arrayIndex': 3
   },
   'gridPos11': {
-    'name': 'gridPos11',
-    'player': 'unassigned',
-    'arrayIndex': 4,
-    'row': 1,
-    'column': 1,
-    'value': ''
+    'arrayIndex': 4
   },
   'gridPos12': {
-    'name': 'gridPos12',
-    'player': 'unassigned',
-    'arrayIndex': 5,
-    'row': 1,
-    'column': 2,
-    'value': ''
+    'arrayIndex': 5
   },
   'gridPos20': {
-    'name': 'gridPos20',
-    'player': 'unassigned',
-    'arrayIndex': 6,
-    'row': 2,
-    'column': 0,
-    'value': ''
+    'arrayIndex': 6
   },
   'gridPos21': {
-    'name': 'gridPos21',
-    'player': 'unassigned',
-    'arrayIndex': 7,
-    'row': 2,
-    'column': 1,
-    'value': ''
+    'arrayIndex': 7
   },
   'gridPos22': {
-    'name': 'gridPos22',
-    'player': 'unassigned',
-    'arrayIndex': 8,
-    'row': 2,
-    'column': 2,
-    'value': ''
+    'arrayIndex': 8
   }
 }
 
 // Invoke the game result determining functions
 const checkForWin = function (index, player) {
-  console.log('checkForWin invoked')
-  let winStatus = false
-  checkDiagonal(winStatus)
-  checkRow(winStatus)
-  checkCol(winStatus)
+  checkDiagonal()
+  checkRow()
+  checkCol()
+  // if (store.game.over === 'false') {
+  // } else if (store.game.over === 'false') {
+  // } else if (store.game.over === 'false') {
+  // } else {
+  if (moveCount > 8) {
+    $('#message').text('LINE 65: A DRAW!?!?!  BOOOOO!!! You better click the "Start New Game" to try again!')
+    $('#game-board').slideUp('slow')
+    moveCount = 0
+    const index = 0
+    const player = store.game.cells[0]
+    const data = {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': player
+        },
+        'over': true
+      }
+    }
+    api.updateGameAPI(data)
+  }
 }
 
 // call back function for the game result checking functions
@@ -116,13 +93,10 @@ const isO = function (element) {
 }
 
 // Check the diagonals for win by X or O
-const checkDiagonal = function (winStatus) {
-  console.log('checkDiagonal invoked')
+const checkDiagonal = function () {
   let testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 99: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -137,14 +111,10 @@ const checkDiagonal = function (winStatus) {
       }
     }
     api.updateGameAPI(data)
-    winStatus = true
-    return winStatus
   }
   testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'X' && store.game.cells[4] === 'X' && store.game.cells[2] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 117: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -160,12 +130,9 @@ const checkDiagonal = function (winStatus) {
     }
     api.updateGameAPI(data)
   }
-  console.log('checkDiagonal invoked')
   testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 135: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -183,9 +150,7 @@ const checkDiagonal = function (winStatus) {
   }
   testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'O' && store.game.cells[4] === 'O' && store.game.cells[2] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 153: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -204,14 +169,11 @@ const checkDiagonal = function (winStatus) {
 }
 
 // Check the rows for win by X or O
-const checkRow = function (winStatus) {
+const checkRow = function () {
   // testArray simply stores the values of each row
-  console.log('checkRow invoked')
   let testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
   if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 176: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -229,9 +191,7 @@ const checkRow = function (winStatus) {
   }
   testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
   if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 194: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -249,9 +209,7 @@ const checkRow = function (winStatus) {
   }
   testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
   if (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 212: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -269,9 +227,7 @@ const checkRow = function (winStatus) {
   }
   testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
   if (store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 230: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -289,9 +245,7 @@ const checkRow = function (winStatus) {
   }
   testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
   if (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 248: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -309,9 +263,7 @@ const checkRow = function (winStatus) {
   }
   testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
   if (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 266: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -330,14 +282,11 @@ const checkRow = function (winStatus) {
 }
 
 // Check the columns for win by X or O
-const checkCol = function (winStatus) {
+const checkCol = function () {
   // testArray simply stores the values of each row
-  console.log('checkCol invoked')
   let testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
   if (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 289: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -355,9 +304,7 @@ const checkCol = function (winStatus) {
   }
   testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
   if (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 307: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -375,9 +322,7 @@ const checkCol = function (winStatus) {
   }
   testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
   if (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') {
-    console.log('X WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 325: X WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -395,9 +340,7 @@ const checkCol = function (winStatus) {
   }
   testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
   if (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 343: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -415,9 +358,7 @@ const checkCol = function (winStatus) {
   }
   testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
   if (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 361: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -435,9 +376,7 @@ const checkCol = function (winStatus) {
   }
   testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
   if (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') {
-    console.log('O WINS!!!!')
-    console.log('testArray is', testArray)
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
+    $('#message').text('LINE 379: O WINS!!! Click the "Start New Game" to play again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
     const index = 0
@@ -457,8 +396,6 @@ const checkCol = function (winStatus) {
 
 const playerMove = function (gridPos) {
   const index = gameObject[gridPos].arrayIndex
-  console.log('moveCount is', moveCount)
-  console.log('isEven(moveCount) evaluates to', isEven(moveCount))
   if (store.game.cells[index] === '') {
     if (isEven(moveCount)) {
       const player = 'X'
@@ -494,17 +431,10 @@ const playerMove = function (gridPos) {
       }
     }
   } else {
-    console.log('store.game.cells[index] is', store.game.cells[index])
-    // $('#' + gridPos).text('D\'OH! Space is taken by', store.game.cells[index])
     $('#' + gridPos).text(`D'OH! Space is taken by ${store.game.cells[index]}`)
   }
   if (moveCount > 4) {
     checkForWin()
-  }
-  if (moveCount > 8) {
-    moveCount = 0
-    $('#message').text('THE GAME IS OVER! Setting a new board!')
-    setBoard()
   }
 }
 
@@ -542,7 +472,6 @@ const recordMove = function (index, player, gridPos) {
     }
     --moveCount
     // Update the DOM to let current player know who already owns that square
-    // $('#' + gridPos).text(gameObject[gridPos].player + ' ALREADY TOOK THIS SQUARE')
     $('#' + gridPos).text('D\'OH!!! Player ' + player + ' already picked this square!')
   }
 }
@@ -559,7 +488,7 @@ module.exports = {
   recordMove,
   isEven,
   playerMove,
-  gameObject,
+  // gameObject,
   setBoard
   // gameArray
 }

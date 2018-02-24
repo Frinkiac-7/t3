@@ -35,7 +35,7 @@ const onSignUpFailure = function (data) {
 
 // Sign out functions
 const onSignOutSuccess = function (data) {
-  $('#message').text(store.user.email + ' signed out. Sign into the game to play!')
+  $('#message').text('No user signed in. Sign into the game to play!')
   $('#change-password-button').slideUp('slow')
   $('#change-password-form').slideUp('slow')
   $('#sign-out-button').slideUp('slow')
