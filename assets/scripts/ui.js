@@ -84,6 +84,12 @@ const onGetOpenGames = function (data) {
   $('#game-results').text('')
   const game = store.history.games.length
   $('#game-results').text('You have played ' + game + ' games!')
+  console.log('store.history is', store.history)
+}
+
+const declareWinner = function (player) {
+  $('#message').text(player + ' WINS!!! Click the "Start New Game" to play again!')
+  $('#game-board').slideUp('slow')
 }
 
 module.exports = {
@@ -98,5 +104,6 @@ module.exports = {
   onSignOutSuccess,
   onGetOpenGames,
   onStartNewGameSuccess,
-  onStartNewGameFailure
+  onStartNewGameFailure,
+  declareWinner
 }

@@ -86,6 +86,21 @@ const onGetOpenGames = function (data) {
   })
 }
 
+const prepAPIData = function () {
+  const index = 0
+  const player = store.game.cells[0]
+  const data = {
+    'game': {
+      'cell': {
+        'index': index,
+        'value': player
+      },
+      'over': true
+    }
+  }
+  return data
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -93,5 +108,6 @@ module.exports = {
   onStartNewGame,
   updateGameAPI,
   onGetOpenGames,
-  onSignOut
+  onSignOut,
+  prepAPIData
 }

@@ -1,5 +1,6 @@
 const store = require('./store')
 const api = require('./api')
+const ui = require('./ui')
 // const events = require('./events')
 
 // Sole purpose is for the while loop in playerMove to determine if there are
@@ -57,25 +58,11 @@ const checkForWin = function (index, player) {
   checkDiagonal()
   checkRow()
   checkCol()
-  // if (store.game.over === 'false') {
-  // } else if (store.game.over === 'false') {
-  // } else if (store.game.over === 'false') {
-  // } else {
   if (moveCount > 8) {
     $('#message').text('A DRAW!?!?!  BOOOOO!!! You better click the "Start New Game" to try again!')
     $('#game-board').slideUp('slow')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
 }
@@ -96,75 +83,32 @@ const isO = function (element) {
 const checkDiagonal = function () {
   let testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
   testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'X' && store.game.cells[4] === 'X' && store.game.cells[2] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
   testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
   testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'O' && store.game.cells[4] === 'O' && store.game.cells[2] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
 }
 
@@ -173,111 +117,51 @@ const checkRow = function () {
   // testArray simply stores the values of each row
   let testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
   if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
   if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
   if (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
   if (store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
   if (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
   if (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
 }
 
@@ -286,111 +170,51 @@ const checkCol = function () {
   // testArray simply stores the values of each row
   let testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
   if (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
   if (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
   if (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') {
-    $('#message').text('X WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('X')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
   if (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
   if (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
   testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
   if (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') {
-    $('#message').text('O WINS!!! Click the "Start New Game" to play again!')
-    $('#game-board').slideUp('slow')
+    ui.declareWinner('O')
     moveCount = 0
-    const index = 0
-    const player = store.game.cells[0]
-    const data = {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': player
-        },
-        'over': true
-      }
-    }
+    const data = api.prepAPIData()
     api.updateGameAPI(data)
+    console.log('store.game =', store.game)
   }
 }
 
