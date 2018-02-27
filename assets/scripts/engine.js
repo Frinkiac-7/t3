@@ -56,8 +56,8 @@ const gameObject = {
 // Invoke the game result determining functions
 const checkForWin = function (index, player) {
   checkDiagonal()
-  checkRow()
-  checkCol()
+  checkHorizontalGrid()
+  checkVerticalGrid()
   if (moveCount > 8) {
     $('#message').text('A DRAW!?!?!  BOOOOO!!! You better click the "Start New Game" to try again!')
     $('#game-board').slideUp('slow')
@@ -81,140 +81,83 @@ const isO = function (element) {
 
 // Check the diagonals for win by X or O
 const checkDiagonal = function () {
-  let testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') {
     ui.declareWinner('X')
     moveCount = 0
     const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
-  testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'X' && store.game.cells[4] === 'X' && store.game.cells[2] === 'X') {
     ui.declareWinner('X')
     moveCount = 0
     const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
-  testArray = [store.game.cells[0], store.game.cells[4], store.game.cells[8]]
   if (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') {
     ui.declareWinner('O')
     moveCount = 0
     const data = api.prepAPIData()
     api.updateGameAPI(data)
   }
-  testArray = [store.game.cells[6], store.game.cells[4], store.game.cells[2]]
   if (store.game.cells[6] === 'O' && store.game.cells[4] === 'O' && store.game.cells[2] === 'O') {
     ui.declareWinner('O')
     moveCount = 0
     const data = api.prepAPIData()
     api.updateGameAPI(data)
-    console.log('store.game =', store.game)
   }
 }
 
 // Check the rows for win by X or O
-const checkRow = function () {
-  // testArray simply stores the values of each row
-  let testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
-  if (store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') {
-    ui.declareWinner('X')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
-  if (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') {
-    ui.declareWinner('X')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
-  if (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') {
-    ui.declareWinner('X')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[0], store.game.cells[1], store.game.cells[2]]
-  if (store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') {
-    ui.declareWinner('O')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[3], store.game.cells[4], store.game.cells[5]]
-  if (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') {
-    ui.declareWinner('O')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[6], store.game.cells[7], store.game.cells[8]]
-  if (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') {
-    ui.declareWinner('O')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
+const checkHorizontalGrid = function () {
+  let row = ''
+  for (let i = 0; i < 9; i += 3) {
+    for (let a = i; a < i + 3; a++) {
+      row += store.game.cells[a]
+    }
+    if (row === 'XXX') {
+      ui.declareWinner('X')
+      moveCount = 0
+      const data = api.prepAPIData()
+      api.updateGameAPI(data)
+      row = ''
+      return
+    } else if (row === 'OOO') {
+      ui.declareWinner('O')
+      moveCount = 0
+      const data = api.prepAPIData()
+      api.updateGameAPI(data)
+      row = ''
+      return
+    } else {
+      row = ''
+    }
   }
 }
 
 // Check the columns for win by X or O
-const checkCol = function () {
-  // testArray simply stores the values of each row
-  let testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
-  if (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') {
-    ui.declareWinner('X')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
-  if (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') {
-    ui.declareWinner('X')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
-  if (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') {
-    ui.declareWinner('X')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[0], store.game.cells[3], store.game.cells[6]]
-  if (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') {
-    ui.declareWinner('O')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[1], store.game.cells[4], store.game.cells[7]]
-  if (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') {
-    ui.declareWinner('O')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
-  }
-  testArray = [store.game.cells[2], store.game.cells[5], store.game.cells[8]]
-  if (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') {
-    ui.declareWinner('O')
-    moveCount = 0
-    const data = api.prepAPIData()
-    api.updateGameAPI(data)
-    console.log('store.game =', store.game)
+const checkVerticalGrid = function () {
+  let row = ''
+  for (let i = 0; i < 9; i++) {
+    for (let a = i; a < i + 7; a += 3) {
+      row += store.game.cells[a]
+    }
+    if (row === 'XXX') {
+      ui.declareWinner('X')
+      moveCount = 0
+      const data = api.prepAPIData()
+      api.updateGameAPI(data)
+      row = ''
+      return
+    } else if (row === 'OOO') {
+      ui.declareWinner('O')
+      moveCount = 0
+      const data = api.prepAPIData()
+      api.updateGameAPI(data)
+      row = ''
+      return
+    } else {
+      row = ''
+    }
   }
 }
 
@@ -306,13 +249,11 @@ module.exports = {
   isX,
   isO,
   checkDiagonal,
-  checkCol,
-  checkRow,
+  checkVerticalGrid,
+  checkHorizontalGrid,
   checkForWin,
   recordMove,
   isEven,
   playerMove,
-  // gameObject,
   setBoard
-  // gameArray
 }

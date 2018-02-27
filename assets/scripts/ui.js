@@ -84,7 +84,6 @@ const onGetOpenGames = function (data) {
   $('#game-results').text('')
   const game = store.history.games.length
   $('#game-results').text('You have played ' + game + ' games!')
-  console.log('store.history is', store.history)
 }
 
 const declareWinner = function (player) {
