@@ -15,29 +15,38 @@
 
 <body class="container-fluid">
   <div class="container">
-    <img class="frink" src="https://i.imgur.com/3ifSZOb.png" alt="Professor Frink">
-    <h1 class="align">T3 - The Frinkiac-7 Game of Tic Tac Toe!</h1>
-    <p class="intro">
-      T3 is tic-tac-toe game which pays homage to Professor John I.Q. Nerdelbaum Frink Jr. and one of his greatest creations which was the <strong>Frinkiac-7</strong> mainframe. Click here if you're unfamiliar with his genius and would like to learn more.
-    </p>
-</div>
-  <div class="container" id="user-actions">
-    <p class="intro">
-    </p>
-    <h1 id="user-state">User Actions</h1>
-    <div id="message-window">
-      <p id="message"></p>
-      <form id="sign-in-form">
-        <div class="form-group">
-          <p>Sign-in form</p>
-          <label>Enter your email</label>
-          <input name="credentials[email]" type="text" placeholder="an@example.email">
-          <label>Enter your password</label>
-          <input name="credentials[password]" type="password" placeholder="Enter your password">
-          <button type="submit" class="button">Sign In</button>
-          <p>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></p>
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="welcome">Welcome to T3!</h1>
+        <h2 class="sub-welcome">The Frinkiac-7 Game of Tic-Tac-Toe!</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="intro">
+            <img class="frink" src="https://i.imgur.com/3ifSZOb.png" alt="Professor Frink">
+            T3 is a tic-tac-toe (3 Ts...T3...get it?) game which pays homage to Professor John I.Q. Nerdelbaum Frink Jr. and one of his greatest creations which was the <strong>Frinkiac-7</strong> mainframe.  Click <a href="http://www.criticalcommons.org/Members/ccManager/clips/simpsonss7e23muchapuaboutnothingfrinkiac7.mp4/view" target="new"> here</a> if you're unfamiliar with his genius.
+          </p>
         </div>
-      </form>
+      </div>
+      <div class="col-md-6 col-md-offset-3" id="user-actions">
+        <h1 id="user-state">User Actions</h1>
+        <div id="message-window">
+          <p id="message"></p>
+          <form id="sign-in-form">
+            <div class="form-group">
+              <p>Sign-in form</p>
+              <label>Enter your email</label>
+              <input name="credentials[email]" type="text" placeholder="an@example.email">
+              <br>
+              <label>Enter your password</label>
+              <input name="credentials[password]" type="password" placeholder="Enter your password">
+              <button type="submit" class="button btn-danger">Sign In</button>
+              <p>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
       <form id="sign-up-form">
         <div class="form-group">
           <p>Sign-up form</p>

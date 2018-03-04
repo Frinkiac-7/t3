@@ -1,26 +1,38 @@
 body {
   background-color: $background-color;
   color: $font-color;
-  font-family: 'Patrick Hand SC', cursive;
+  font-family: 'Handlee', cursive;
 }
 
 form {
-  color: $black;
+  color: $white;
+  font-size: 20px;
 }
 
 a {
+  color: $red;
   text-decoration: none;
 }
 
-.align {
-  color: $black;
-  font-size: 72px;
+.welcome {
+  // color: $black;
+  font-size: 60px;
+  text-align: center;
+}
+
+.sub-welcome {
+  // color: $black;
+  font-size: 30px;
   text-align: center;
 }
 
 .intro {
-  font-size: 40px;
-  text-align: center;
+  border-radius: 10% / 25%;
+  border-style: solid;
+  font-size: 20px;
+  margin: 5px;
+  padding: 15px;
+  padding-left: 10%;
 }
 
 .message {
@@ -46,7 +58,7 @@ a {
 
 .frink {
   border-radius: 10% / 50%;
-  float: left;
+  float: right;
   height: 150px;
   width: 100px;
 }
