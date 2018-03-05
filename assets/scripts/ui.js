@@ -72,6 +72,10 @@ const onChangePasswordFailure = function () {
 // Game functions
 const onStartNewGameSuccess = function (data) {
   store.game = data.game
+  $('#change-password-button').hide('slow')
+  $('#sign-out-button').hide('slow')
+  $('#start-new-game').hide('slow')
+  $('#get-open-games').hide('slow')
   $('#message').text('Game #' + store.game.id + ' started!  Good luck!')
 }
 
@@ -89,6 +93,10 @@ const onGetOpenGames = function (data) {
 const declareWinner = function (player) {
   $('#message').text(player + ' WINS!!! Click "Start Game" to play again!')
   $('#game-board').slideUp('slow')
+  $('#change-password-button').slideDown('slow')
+  $('#sign-out-button').slideDown('slow')
+  $('#start-new-game').slideDown('slow')
+  $('#get-open-games').slideDown('slow')
 }
 
 module.exports = {
