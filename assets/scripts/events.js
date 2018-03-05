@@ -6,6 +6,7 @@ const store = require('./store')
 
 // Sign in functions
 const onSignIn = function (event) {
+  console.log('events.onSignIn invoked')
   event.preventDefault()
   const userForm = getFormFields(this)
   if (userForm.credentials.email === '' && userForm.credentials.password === '') {

@@ -34,7 +34,7 @@ $(() => {
 
   // Submit handlers
   $('#sign-up-form').submit(events.onSignUp)
-  $('#sign-in-form').submit(events.onSignIn)
+  $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').submit(events.onChangePassword)
   $('#sign-out-button').submit(events.onSignOut)
   $('#start-new-game').submit(events.onStartNewGame)

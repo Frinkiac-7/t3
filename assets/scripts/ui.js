@@ -87,7 +87,7 @@ const onGetOpenGames = function (data) {
 }
 
 const declareWinner = function (player) {
-  $('#message').text(player + ' WINS!!! Click the "Start New Game" to play again!')
+  $('#message').text(player + ' WINS!!! Click "Start Game" to play again!')
   $('#game-board').slideUp('slow')
 }
 
