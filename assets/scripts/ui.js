@@ -9,13 +9,15 @@ const onSignInSuccess = function (data) {
   $('#game-actions').slideDown('slow')
   $('#start-new-game').slideDown('slow')
   $('#get-open-games').slideDown('slow')
+  $('#sign-in').modal('toggle')
+  $('#sign-in-button').slideUp('slow')
   $('#message').text('User ' + data.user.email + ' is signed in.')
   $('#sign-in-form')[0].reset()
 }
 
 const onSignInFailure = function (data) {
   $('#sign-in-form')[0].reset()
-  $('#message').text('Sign in failed.  Please try again!')
+  $('#modal-message').text('Sign in failed.  Please try again!')
 }
 
 // Sign up functions
@@ -44,6 +46,7 @@ const onSignOutSuccess = function (data) {
   $('#start-new-game').slideUp('slow')
   $('#game-board').slideUp('slow')
   $('#sign-in-form').slideDown('slow')
+  $('#sign-in-button').slideDown('slow')
 }
 
 // Password functions

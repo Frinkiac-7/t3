@@ -6,17 +6,16 @@ const store = require('./store')
 
 // Sign in functions
 const onSignIn = function (event) {
-  console.log('events.onSignIn invoked')
   event.preventDefault()
   const userForm = getFormFields(this)
   if (userForm.credentials.email === '' && userForm.credentials.password === '') {
-    $('#message').text('Login fields can\'t be blank.  Please enter an email address and password.')
+    $('#modal-message').text('Email address and password fields can\'t be blank.')
     $('#sign-in-form')[0].reset()
   } else if (userForm.credentials.email === '') {
-    $('#message').text('Email can\'t be blank.  Please enter an email address.')
+    $('#modal-message').text('Email can\'t be blank.  Please enter an email address.')
     $('#sign-in-form')[0].reset()
   } else if (userForm.credentials.password === '') {
-    $('#message').text('Password can\'t be blank.  Please enter a password.')
+    $('#modal-message').text('Password can\'t be blank.  Please enter a password.')
     $('#sign-in-form')[0].reset()
   } else {
     api.onSignIn(userForm)

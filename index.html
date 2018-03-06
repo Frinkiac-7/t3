@@ -34,7 +34,7 @@
                 <a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> login</a>
               </li>
            </ul>
-          <li><a href="#"id="modal_pw">Launch Modal PW Change Form</a></li>
+          <li><a href="#" id="modal_pw">Launch Modal PW Change Form</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button btn-primary" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -70,8 +70,42 @@
             T3 is a tic-tac-toe (3 Ts...T3...get it?) game which pays homage to Professor John I.Q. Nerdelbaum Frink Jr. and one of his greatest creations which was the <strong>Frinkiac-7</strong> mainframe.  Click <a href="http://www.criticalcommons.org/Members/ccManager/clips/simpsonss7e23muchapuaboutnothingfrinkiac7.mp4/view" target="new"> here</a> if you're unfamiliar with his genius.
           </p>
         </div>
-      </div>
-      <form id="sign-in-form">
+        <!-- Modal -->
+        <!-- Button trigger modal -->
+        <div class="button-center">
+          <p class="test">
+            T3 can be played with friends using the same computer or by yourself as a good way to kill time when the boss isn't looking!  All you need to do is sign-in with your account and you're all set!
+            What's that?  You don't have an account?  No problem!  Just click on the 'Sign Up' link in the navigation bar above.
+          </p>
+          <button id="sign-in-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in">
+            Click here to sign in!
+          </button>
+          <div class="modal fade" id="sign-in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h3 class="modal-title black" id="myModalLabel">T3 User Login</h3>
+                </div>
+                <div class="modal-body">
+                  <h3 class="black" id="modal-message">Sign in to play!</h3>
+                  <form id="sign-in-form">
+                    <div class="form-group">
+                        <label for="email" class="control-label">Enter your email</label>
+                        <input name="credentials[email]" type="text" class="form-control" id="recipient-name" placeholder="user@domain.com">
+                        <label for="password" class="control-label">Enter your password</label>
+                        <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
+                      </div>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary">Sign-In</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- <form id="sign-in-form">
         <div class="form-group">
           <h1>Sign in to play T3!</h1>
           <label>Enter your email</label>
@@ -82,7 +116,7 @@
           <button type="submit" class="button btn-primary">Sign In</button>
         </div>
         <h2>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></h2>
-      </form>
+      </form> -->
       <form id="sign-up-form">
         <div class="form-group">
           <h1>Create a T3 player account!</h1>
