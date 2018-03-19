@@ -26,15 +26,14 @@ const onSignUp = function (data) {
 }
 
 // Sign out functions
-const onSignOut = function (data) {
+const onSignOut = function () {
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 

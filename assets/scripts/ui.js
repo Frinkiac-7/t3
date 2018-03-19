@@ -34,16 +34,9 @@ const onSignUpSuccess = function (data) {
 
 // Sign out functions
 const onSignOutSuccess = function (data) {
-  $('#message').text('No user signed in. Sign into the game to play!')
-  $('#change-password-button').slideUp('slow')
-  $('#change-password-form').slideUp('slow')
-  $('#sign-out-button').slideUp('slow')
-  $('#game-actions').slideUp('slow')
-  $('#get-open-games').slideUp('slow')
-  $('#start-new-game').slideUp('slow')
-  $('#game-board').slideUp('slow')
-  $('#sign-in-form').slideDown('slow')
-  $('#sign-in-button').slideDown('slow')
+  hideGameBoard()
+  hidePostLogin()
+  showPreLogin()
 }
 
 const hidePreLogin = function () {

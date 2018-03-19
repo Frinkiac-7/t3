@@ -14,14 +14,6 @@ $(() => {
   // Form hide statements
   ui.hidePostLogin()
   ui.hideGameBoard()
-  // $('#sign-up-form').hide()
-  // $('#change-password-form').hide()
-  // $('#sign-out-button').hide()
-  // $('#change-password-button').hide()
-  // $('#game-actions').hide()
-  // $('#start-new-game').hide()
-  // $('#get-open-games').hide()
-  // $('#game-board').hide()
 
   // Click event handlers
   $('#change-password-button').click(ui.showChangePasswordForm)
@@ -38,7 +30,7 @@ $(() => {
   $('#sign-up-form').submit(events.onSignUp)
   $('#sign-in-form').submit(events.onSignIn)
   $('#chng-pw-form').submit(events.onChangePassword)
-  $('#sign-out-button').submit(events.onSignOut)
+  $('#sign-out-btn').click('submit',events.onSignOut)
   $('#start-new-game').submit(events.onStartNewGame)
   $('#get-open-games').submit(events.onGetOpenGames)
 })

@@ -58,8 +58,7 @@ const onAcctNew = function (event) {
 // Sign out functions
 const onSignOut = function (event) {
   event.preventDefault()
-  const userForm = getFormFields(this)
-  api.onSignOut(userForm)
+  api.onSignOut()
     .then(ui.onSignOutSuccess)
 }
 
