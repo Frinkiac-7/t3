@@ -119,6 +119,10 @@ const resetForms = function () {
   $('#sign-up-form')[0].reset()
 }
 
+const hideGameBoard = function () {
+  $('#game-board').hide()
+}
+
 module.exports = {
   showChangePasswordForm,
   showChangePasswordButton,
@@ -136,5 +140,6 @@ module.exports = {
   showPreLogin,
   hidePostLogin,
   showPostLogin,
+  hideGameBoard,
   declareWinner
 }

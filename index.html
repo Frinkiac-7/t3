@@ -50,7 +50,7 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-3"> <!-- Start of sign-in div -->
-            <button id="sign-in-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in-modal">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in-modal">
               Sign in!
             </button>
             <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -78,7 +78,7 @@
             </div>
           </div> <!-- End of sign-in div -->
           <div class="col-md-3"> <!-- Start of sign-up div -->
-            <button id="sign-up-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
               Sign up!
             </button>
             <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -113,7 +113,7 @@
     </div> <!-- End of pre-login/game instructions div -->
     <div class="row" id="post-login"> <!-- Start of post-login/game play div -->
       <div class="col-md-3">
-        <button id="chng-pw-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#chng-pw-modal">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#chng-pw-modal">
           Change password
         </button>
         <div class="modal fade" id="chng-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -151,50 +151,46 @@
         </button>
       </div>
       <div class="col-md-3">
-        <button id="sign-out-button" type="button" class="btn btn-primary btn-lg">
+        <button type="button" class="btn btn-primary btn-lg">
           Sign Out
         </button>
       </div>
     </div> <!-- End of post-login/game play div -->
+    <div class="container gameboard" id="game-board"> <!-- Start game board div -->
+      <div class="row article">
+        <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos00">
+          PICK ME
+        </div>
+        <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos01">
+          PICK ME
+        </div>
+        <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos02">
+          PICK ME
+        </div>
+      </div>
+      <div class="row article">
+        <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos10">
+          PICK ME
+        </div>
+        <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos11">
+          PICK ME
+        </div>
+        <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos12">
+          PICK ME
+        </div>
+      </div>
+      <div class="row article">
+        <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos20">
+          PICK ME
+        </div>
+        <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos21">
+          PICK ME
+        </div>
+        <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos22">
+          PICK ME
+        </div>
+      </div>
+    </div> <!-- End game board div -->
   </div>  <!-- End of main body -->
-  <div class="container gameboard" id="game-board">
-    <div class="row article">
-      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos00">
-        PICK ME
-      </div>
-      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos01">
-        PICK ME
-      </div>
-      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos02">
-        PICK ME
-      </div>
-    </div>
-    <div class="row article">
-      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos10">
-        PICK ME
-      </div>
-      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos11">
-        PICK ME
-      </div>
-      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos12">
-        PICK ME
-      </div>
-    </div>
-    <div class="row article">
-      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos20">
-        PICK ME
-      </div>
-      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos21">
-        PICK ME
-      </div>
-      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos22">
-        PICK ME
-      </div>
-    </div>
-  </div>
-</div> <!-- End of welcome div -->
-</div> <!-- End of main body -->
-
-
 </body>
 </html>
