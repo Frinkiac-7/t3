@@ -12,7 +12,7 @@ $(() => {
 
 $(() => {
   // Form hide statements
-  ui.hidePostLogin()
+  // ui.hidePostLogin()
   // $('#sign-up-form').hide()
   // $('#change-password-form').hide()
   // $('#sign-out-button').hide()

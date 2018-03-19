@@ -113,8 +113,6 @@
     </div> <!-- End of pre-login/game instructions div -->
     <div class="row" id="post-login"> <!-- Start of post-login/game play div -->
       <div class="col-md-3">
-      </div>
-      <div class="col-md-3">
         <button id="chng-pw-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#chng-pw-modal">
           Change password
         </button>
@@ -143,36 +141,22 @@
         </div>
       </div>
       <div class="col-md-3">
+        <button id="see-gms-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#see-gms-modal">
+          See Game Stats
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button id="strt-gms-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#see-gms-modal">
+          Start New Game
+        </button>
+      </div>
+      <div class="col-md-3">
         <button id="sign-out-button" type="button" class="btn btn-primary btn-lg">
           Sign Out
         </button>
       </div>
-      <div class="col-md-3">
-      </div>
     </div> <!-- End of post-login/game play div -->
   </div>  <!-- End of main body -->
-
-  <form id="sign-out-button">
-    <div class="form-group">
-      <p>Sign out button</p>
-      <button type="submit" class="button btn-primary">Sign Out</button>
-    </div>
-  </form>
-  <form id="start-new-game">
-    <div class="form-group">
-      <p>Start a new game</p>
-      <button type="submit" class="button btn-primary">Start Game</button>
-    </div>
-  </form>
-  <form id="get-open-games">
-    <div class="form-group">
-      <p>See How Many Games You've Played</p>
-      <button type="submit" class="button btn-primary">See Games Played</button>
-    </div>
-  </form>
-  <div id="game-messages">
-    <p id="game-results"></p>
-  </div>
   <div class="container gameboard" id="game-board">
     <div class="row article">
       <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos00">
