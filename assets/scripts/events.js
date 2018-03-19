@@ -106,6 +106,7 @@ const onStartNewGame = function (event) {
 
 const onGetOpenGames = function (event) {
   event.preventDefault()
+  console.log('events.onGetOpenGames invoked')
   api.onGetOpenGames()
     .then(ui.onGetOpenGames)
 }

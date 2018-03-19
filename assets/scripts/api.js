@@ -75,6 +75,7 @@ const updateGameAPI = function (data) {
 }
 
 const onGetOpenGames = function (data) {
+  console.log('api.onGetOpenGames invoked')
   return $.ajax({
     url: config.apiOrigin + '/games/',
     method: 'GET',

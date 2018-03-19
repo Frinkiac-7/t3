@@ -94,9 +94,9 @@ const onStartNewGameFailure = function () {
 
 const onGetOpenGames = function (data) {
   store.history = data
-  $('#game-results').text('')
+  $('#get-open-gms-msg').text('')
   const game = store.history.games.length
-  $('#game-results').text('You have played ' + game + ' games!')
+  $('#get-open-gms-msg').text('You have played ' + game + ' games!')
 }
 const declareWinner = function (player) {
   $('#message').text(player + ' WINS!!! Click "Start Game" to play again!')
