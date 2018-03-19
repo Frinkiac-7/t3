@@ -3,36 +3,33 @@ const store = require('./store')
 // Sign in functions
 const onSignInSuccess = function (data) {
   store.user = data.user
-  $('#sign-in-form').slideUp('slow')
-  $('#sign-out-button').slideDown('slow')
-  $('#change-password-button').slideDown('slow')
+  resetForms()
+  hidePreLogin()
+  showPostLogin()
   $('#game-actions').slideDown('slow')
   $('#start-new-game').slideDown('slow')
   $('#get-open-games').slideDown('slow')
-  $('#sign-in').modal('toggle')
+  $('#sign-in-modal').modal('toggle')
   $('#sign-in-button').slideUp('slow')
-  $('#message').text('User ' + data.user.email + ' is signed in.')
-  $('#sign-in-form')[0].reset()
 }
 
 const onSignInFailure = function (data) {
-  $('#sign-in-form')[0].reset()
-  $('#modal-message').text('Sign in failed.  Please try again!')
+  resetForms()
+  $('#sign-in-modal-msg').text('Sign in failed.  Please try again!')
 }
 
 // Sign up functions
-const onSignUpSuccess = function (data) {
-  store.user = data.user
-  $('#sign-up-form')[0].reset()
-  $('#sign-up-form').slideUp('slow')
-  $('#sign-in-form')[0].reset()
-  $('#sign-in-form').slideDown('slow')
-  $('#message').text('User ' + data.user.email + ' successfully created!')
+const onSignUpFailure = function (data) {
+  resetForms()
+  $('#sign-up-modal-msg').text('Sign up failed.  Please try again!')
 }
 
-const onSignUpFailure = function (data) {
-  $('#sign-in-form')[0].reset()
-  $('#message').text('Sign up failed.  Please try again!')
+const onSignUpSuccess = function (data) {
+  store.user = data.user
+  resetForms()
+  $('#sign-up-modal').modal('toggle')
+  $('#sign-in-modal').modal('toggle')
+  $('#sign-in-modal-msg').text('User ' + data.user.email + ' successfully created. Please sign in to play!')
 }
 
 // Sign out functions
@@ -47,6 +44,22 @@ const onSignOutSuccess = function (data) {
   $('#game-board').slideUp('slow')
   $('#sign-in-form').slideDown('slow')
   $('#sign-in-button').slideDown('slow')
+}
+
+const hidePreLogin = function () {
+  $('#pre-login').slideUp('slow')
+}
+
+const showPreLogin = function () {
+  $('#pre-login').slideDown('slow')
+}
+
+const hidePostLogin = function () {
+  $('#post-login').slideUp('slow')
+}
+
+const showPostLogin = function () {
+  $('#post-login').slideDown('slow')
 }
 
 // Password functions
@@ -92,7 +105,6 @@ const onGetOpenGames = function (data) {
   const game = store.history.games.length
   $('#game-results').text('You have played ' + game + ' games!')
 }
-
 const declareWinner = function (player) {
   $('#message').text(player + ' WINS!!! Click "Start Game" to play again!')
   $('#game-board').slideUp('slow')
@@ -100,6 +112,11 @@ const declareWinner = function (player) {
   $('#sign-out-button').slideDown('slow')
   $('#start-new-game').slideDown('slow')
   $('#get-open-games').slideDown('slow')
+}
+
+const resetForms = function () {
+  $('#sign-in-form')[0].reset()
+  $('#sign-up-form')[0].reset()
 }
 
 module.exports = {
@@ -115,5 +132,9 @@ module.exports = {
   onGetOpenGames,
   onStartNewGameSuccess,
   onStartNewGameFailure,
+  hidePreLogin,
+  showPreLogin,
+  hidePostLogin,
+  showPostLogin,
   declareWinner
 }

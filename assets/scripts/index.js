@@ -12,14 +12,14 @@ $(() => {
 
 $(() => {
   // Form hide statements
-  $('#sign-up-form').hide()
-  $('#change-password-form').hide()
-  $('#sign-out-button').hide()
-  $('#change-password-button').hide()
-  $('#game-actions').hide()
-  $('#start-new-game').hide()
-  $('#get-open-games').hide()
-  $('#game-board').hide()
+  // $('#sign-up-form').hide()
+  // $('#change-password-form').hide()
+  // $('#sign-out-button').hide()
+  // $('#change-password-button').hide()
+  // $('#game-actions').hide()
+  // $('#start-new-game').hide()
+  // $('#get-open-games').hide()
+  // $('#game-board').hide()
 
   // Click event handlers
   $('#change-password-button').click(ui.showChangePasswordForm)

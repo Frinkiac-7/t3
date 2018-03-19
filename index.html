@@ -14,85 +14,58 @@
 </head>
 
 <body class="container-fluid">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> login</a>
-              </li>
-           </ul>
-          <li><a href="#" id="modal_pw">Launch Modal PW Change Form</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button btn-primary" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <p class="navbar-text" id="message" >No user signed in</p>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-<!-- THIS IS THE START OF MY WORKING CODE -->
-  <div class="container">
-    <div class="row">
+  <div class="container"> <!-- Start of main body -->
+    <div class="row"> <!-- Start of title div -->
       <div class="col-xs-12">
         <h1 class="welcome">Welcome to T3!</h1>
         <h2 class="sub-welcome">The Frinkiac-7 Game of Tic-Tac-Toe!</h2>
       </div>
-    </div>
-    <div class="container">
+    </div> <!-- End of title div -->
+    <div class="container"> <!-- Start of welcome div -->
       <div class="row">
         <div class="col-md-12">
           <p class="intro">
-            <img class="frink" src="https://i.imgur.com/3ifSZOb.png" alt="Professor Frink">
-            T3 is a tic-tac-toe (3 Ts...T3...get it?) game which pays homage to Professor John I.Q. Nerdelbaum Frink Jr. and one of his greatest creations which was the <strong>Frinkiac-7</strong> mainframe.  Click <a href="http://www.criticalcommons.org/Members/ccManager/clips/simpsonss7e23muchapuaboutnothingfrinkiac7.mp4/view" target="new"> here</a> if you're unfamiliar with his genius.
+            <img class="frink" src="https://i.imgur.com/3ifSZOb.png" alt="Professor Frink"> T3 is a tic-tac-toe (3 Ts...T3...get it?) game which pays homage to Professor John I.Q. Nerdelbaum Frink Jr. and one of his greatest creations which was the <strong>Frinkiac-7</strong> mainframe. Click <a href="http://www.criticalcommons.org/Members/ccManager/clips/simpsonss7e23muchapuaboutnothingfrinkiac7.mp4/view" target="new"> here</a> if you're unfamiliar with his genius.
           </p>
         </div>
-        <!-- Modal -->
-        <!-- Button trigger modal -->
-        <div class="button-center">
+      </div>
+    </div> <!-- End of welcome div -->
+    <div class="row" id="pre-login"> <!-- Start of pre-login/game instructions div -->
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
           <p class="test">
-            T3 can be played with friends using the same computer or by yourself as a good way to kill time when the boss isn't looking!  All you need to do is sign-in with your account and you're all set!
-            What's that?  You don't have an account?  No problem!  Just click on the 'Sign Up' link in the navigation bar above.
+            <strong>Ways to Play</strong>
+            <br />
           </p>
-          <button id="sign-in-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in">
-            Click here to sign in!
-          </button>
-          <div class="modal fade" id="sign-in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h3 class="modal-title black" id="myModalLabel">T3 User Login</h3>
-                </div>
-                <div class="modal-body">
-                  <h3 class="black" id="modal-message">Sign in to play!</h3>
-                  <form id="sign-in-form">
-                    <div class="form-group">
+          <ol class="test">
+            <li>Take turns with friends using the same computer.</li>
+            <li>Kill time when the boss isn't looking and play against yourself!</li>
+          </ol>
+          <p>All you need to do is sign-in with your account and you're all set! What's that? You don't have an account? No problem! Just click on the 'Sign Up' link in the navigation bar above.</p>
+        </div>
+        <div class="col-md-3"></div>
+      </div> <!-- End of game instructions div -->
+      <div class="row"> <!-- Start of user login-in/sign-up div -->
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-3"> <!-- Start of sign-in div -->
+            <button id="sign-in-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-in-modal">
+              Click here to sign in!
+            </button>
+            <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title black">T3 User Login</h3>
+                  </div>
+                  <div class="modal-body">
+                    <h3 class="black" id="sign-in-modal-msg">Sign in to play!</h3>
+                    <form id="sign-in-form">
+                      <div class="form-group">
                         <label for="email" class="control-label">Enter your email</label>
-                        <input name="credentials[email]" type="text" class="form-control" id="recipient-name" placeholder="user@domain.com">
+                        <input name="credentials[email]" type="text" class="form-control" placeholder="user@domain.com">
                         <label for="password" class="control-label">Enter your password</label>
                         <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
                       </div>
@@ -103,110 +76,122 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> <!-- End of sign-in div -->
+          <div class="col-md-3"> <!-- Start of sign-up div -->
+            <button id="sign-up-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+              Click here to sign up!
+            </button>
+            <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title black">T3 User Sign-Up</h3>
+                  </div>
+                  <div class="modal-body">
+                    <h3 class="black" id="sign-up-modal-msg">Sign up to play!</h3>
+                    <form id="sign-up-form">
+                      <div class="form-group">
+                        <label for="email" class="control-label">Enter your email</label>
+                        <input name="credentials[email]" type="text" class="form-control" placeholder="user@domain.com">
+                        <label for="password" class="control-label">Enter your password</label>
+                        <input name="credentials[password]" type="password" class="form-control" placeholder="Enter your password">
+                        <label for="password" class="control-label">Please re-enter your password</label>
+                        <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm your password">
+                      </div>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary">Sign-Up</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End of sign-up div -->
+          <div class="col-md-3"></div>
         </div>
-      <!-- <form id="sign-in-form">
-        <div class="form-group">
-          <h1>Sign in to play T3!</h1>
-          <label>Enter your email</label>
-          <input name="credentials[email]" type="text" placeholder="an@example.email">
-          <br>
-          <label>Enter your password</label>
-          <input name="credentials[password]" type="password" placeholder="Enter your password">
-          <button type="submit" class="button btn-primary">Sign In</button>
-        </div>
-        <h2>Don't have an account? <a href="#" id="acctNew">Sign up here!</a></h2>
-      </form> -->
-      <form id="sign-up-form">
-        <div class="form-group">
-          <h1>Create a T3 player account!</h1>
-          <label>Enter your email</label>
-          <input name="credentials[email]" type="text" placeholder="an@example.email">
-          <br>
-          <label>Enter your password</label>
-          <input name="credentials[password]" type="password" placeholder="Enter your password">
-          <br>
-          <label>Enter your password confirmation</label>
-          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm your password">
-          <button type="submit" class="button btn-primary">Sign Up</button>
-        </div>
-        <h2>Already have an account? <a href="#" id="acctExists">Sign in here!</a></h2>
-      </form>
-      <form id="change-password-button">
-        <div class="form-group">
-          <p>Change Password</p>
-          <button type="submit" class="button btn-primary">Change Password</button>
-        </div>
-      </form>
-      <form id="change-password-form">
-        <div class="form-group">
-          <p>Change password form</p>
-          <label>Enter your old password</label>
-          <input name="passwords[old]" type="password" placeholder="Enter your old password">
-          <label>Enter your new password</label>
-          <input name="passwords[new]" type="password" placeholder="Enter your new password">
-          <button type="submit" class="button btn-primary">Change password</button>
-          <p id="cancel-password-change">Don't want to change your password?  Just <a href="#">CLICK HERE</a></p>
-        </div>
-      </form>
-      <form id="sign-out-button">
-        <div class="form-group">
-          <p>Sign out button</p>
-          <button type="submit" class="button btn-primary">Sign Out</button>
-        </div>
-      </form>
-      <form id="start-new-game">
-        <div class="form-group">
-          <p>Start a new game</p>
-          <button type="submit" class="button btn-primary">Start Game</button>
-        </div>
-      </form>
-      <form id="get-open-games">
-        <div class="form-group">
-          <p>See How Many Games You've Played</p>
-          <button type="submit" class="button btn-primary">See Games Played</button>
-        </div>
-      </form>
-      <div id="game-messages">
-        <p id="game-results"></p>
+      </div> <!-- End of user login-in/sign-up div -->
+    </div> <!-- End of pre-login/game instructions div -->
+    <div> <!-- Start of post-login/game play div -->
+      <p>blanasd asd;f a;sldf sadfasdf</p>
+    </div>
+  </div>  <!-- End of main body -->
+
+  <form id="change-password-button">
+    <div class="form-group">
+      <p>Change Password</p>
+      <button type="submit" class="button btn-primary">Change Password</button>
+    </div>
+  </form>
+  <form id="change-password-form">
+    <div class="form-group">
+      <p>Change password form</p>
+      <label>Enter your old password</label>
+      <input name="passwords[old]" type="password" placeholder="Enter your old password">
+      <label>Enter your new password</label>
+      <input name="passwords[new]" type="password" placeholder="Enter your new password">
+      <button type="submit" class="button btn-primary">Change password</button>
+      <p id="cancel-password-change">Don't want to change your password? Just <a href="#">CLICK HERE</a></p>
+    </div>
+  </form>
+  <form id="sign-out-button">
+    <div class="form-group">
+      <p>Sign out button</p>
+      <button type="submit" class="button btn-primary">Sign Out</button>
+    </div>
+  </form>
+  <form id="start-new-game">
+    <div class="form-group">
+      <p>Start a new game</p>
+      <button type="submit" class="button btn-primary">Start Game</button>
+    </div>
+  </form>
+  <form id="get-open-games">
+    <div class="form-group">
+      <p>See How Many Games You've Played</p>
+      <button type="submit" class="button btn-primary">See Games Played</button>
+    </div>
+  </form>
+  <div id="game-messages">
+    <p id="game-results"></p>
+  </div>
+  <div class="container gameboard" id="game-board">
+    <div class="row article">
+      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos00">
+        PICK ME
       </div>
-      <div class="container gameboard" id="game-board">
-        <div class="row article">
-          <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos00">
-            PICK ME
-          </div>
-          <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos01">
-            PICK ME
-          </div>
-          <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos02">
-            PICK ME
-          </div>
-        </div>
-        <div class="row article">
-          <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos10">
-            PICK ME
-          </div>
-          <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos11">
-            PICK ME
-          </div>
-          <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos12">
-            PICK ME
-          </div>
-        </div>
-        <div class="row article">
-          <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos20">
-            PICK ME
-          </div>
-          <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos21">
-            PICK ME
-          </div>
-          <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos22">
-            PICK ME
-          </div>
-        </div>
+      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos01">
+        PICK ME
+      </div>
+      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos02">
+        PICK ME
+      </div>
+    </div>
+    <div class="row article">
+      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos10">
+        PICK ME
+      </div>
+      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos11">
+        PICK ME
+      </div>
+      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos12">
+        PICK ME
+      </div>
+    </div>
+    <div class="row article">
+      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos20">
+        PICK ME
+      </div>
+      <div class="col-xs-6 col-md-4 cell box grey message" id="gridPos21">
+        PICK ME
+      </div>
+      <div class="col-xs-6 col-md-4 cell box teal message" id="gridPos22">
+        PICK ME
       </div>
     </div>
   </div>
-</body>
+</div> <!-- End of welcome div -->
+</div> <!-- End of main body -->
 
+
+</body>
 </html>

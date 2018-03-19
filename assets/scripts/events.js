@@ -9,13 +9,13 @@ const onSignIn = function (event) {
   event.preventDefault()
   const userForm = getFormFields(this)
   if (userForm.credentials.email === '' && userForm.credentials.password === '') {
-    $('#modal-message').text('Email address and password fields can\'t be blank.')
+    $('#sign-in-modal-msg').text('Email address and password fields can\'t be blank.')
     $('#sign-in-form')[0].reset()
   } else if (userForm.credentials.email === '') {
-    $('#modal-message').text('Email can\'t be blank.  Please enter an email address.')
+    $('#sign-in-modal-msg').text('Email can\'t be blank.  Please enter an email address.')
     $('#sign-in-form')[0].reset()
   } else if (userForm.credentials.password === '') {
-    $('#modal-message').text('Password can\'t be blank.  Please enter a password.')
+    $('#sign-in-modal-msg').text('Password can\'t be blank.  Please enter a password.')
     $('#sign-in-form')[0].reset()
   } else {
     api.onSignIn(userForm)
@@ -37,10 +37,10 @@ const onSignUp = function (event) {
   event.preventDefault()
   const userForm = getFormFields(this)
   if (userForm.credentials.password !== userForm.credentials.password_confirmation) {
-    $('#message').text('Your passwords didn\'t match. Please try again')
+    $('#sign-up-modal-msg').text('Your passwords didn\'t match. Please try again')
     $('#sign-up-form')[0].reset()
   } else if (userForm.credentials.email === '') {
-    $('#message').text('The email field can\'t be blank. Please try again')
+    $('#sign-up-modal-msg').text('The email field can\'t be blank. Please try again')
     $('#sign-up-form')[0].reset()
   } else {
     api.onSignUp(userForm)
