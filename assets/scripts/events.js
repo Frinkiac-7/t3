@@ -68,14 +68,14 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const userForm = getFormFields(this)
   if (userForm.passwords.old === '' && userForm.passwords.new === '') {
-    $('#message').text('Password fields can\'t be blank.  Please enter your old password and new passwords.')
-    $('#change-password-form')[0].reset()
+    $('#chng-pw-modal-msg').text('Password fields can\'t be blank.  Please enter your old password and new passwords.')
+    $('#chng-pw-form')[0].reset()
   } else if (userForm.passwords.old === '') {
-    $('#message').text('Old password field can\'t be blank.  Please enter your old password and new passwords.')
-    $('#change-password-form')[0].reset()
+    $('#chng-pw-modal-msg').text('Old password field can\'t be blank.  Please enter your old password and new passwords.')
+    $('#chng-pw-form')[0].reset()
   } else if (userForm.passwords.new === '') {
-    $('#message').text('New password field can\'t be blank.  Please enter your old password and new passwords.')
-    $('#change-password-form')[0].reset()
+    $('#chng-pw-modal-msg').text('New password field can\'t be blank.  Please enter your old password and new passwords.')
+    $('#chng-pw-form')[0].reset()
   } else {
     api.onChangePassword(userForm)
       .then(ui.onChangePasswordSuccess)

@@ -12,6 +12,7 @@ $(() => {
 
 $(() => {
   // Form hide statements
+  ui.hidePostLogin()
   // $('#sign-up-form').hide()
   // $('#change-password-form').hide()
   // $('#sign-out-button').hide()
@@ -34,8 +35,8 @@ $(() => {
 
   // Submit handlers
   $('#sign-up-form').submit(events.onSignUp)
-  $('#sign-in-form').on('submit', events.onSignIn)
-  $('#change-password-form').submit(events.onChangePassword)
+  $('#sign-in-form').submit(events.onSignIn)
+  $('#chng-pw-form').submit(events.onChangePassword)
   $('#sign-out-button').submit(events.onSignOut)
   $('#start-new-game').submit(events.onStartNewGame)
   $('#get-open-games').submit(events.onGetOpenGames)

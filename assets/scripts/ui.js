@@ -75,14 +75,14 @@ const showChangePasswordForm = function () {
 }
 
 const onChangePasswordSuccess = function () {
-  $('#change-password-form').slideUp('slow')
-  $('#message').text('User ' + store.user.email + ' password successful changed.')
-  $('#change-password-form')[0].reset()
+  $('#chng-pw-modal').modal('toggle')
+  $('#chng-pw-modal-msg').text('User ' + store.user.email + ' password successful changed.')
+  $('#chng-pw-form')[0].reset()
 }
 
 const onChangePasswordFailure = function () {
-  $('#message').text('User ' + store.user.email + ' password change failed.  Please try again.')
-  $('#change-password-form')[0].reset()
+  $('#chng-pw-modal-msg').text('User ' + store.user.email + ' password change failed.  Please try again.')
+  $('#chng-pw-form')[0].reset()
 }
 
 // Game functions
