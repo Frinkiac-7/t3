@@ -12,10 +12,12 @@ let moveCount = 0
 
 // Main game logic repository
 const setBoard = function () {
-  $('#game-board').slideDown('slow')
+  console.log('engine.setBoard invoked')
   for (let x = 0; x < 3; x++) {
     for (let y = 0; y < 3; y++) {
-      $('#gridPos' + x + y).text('PICK ME')
+      $('#gridPos').attr('id', '#gridPos' + x + y)
+      $('.box').text('PICK ME')
+      $('.box').css('pointer-events', 'auto')
     }
   }
 }

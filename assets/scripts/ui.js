@@ -79,8 +79,13 @@ const onChangePasswordFailure = function () {
 }
 
 // Game functions
+const showGameBoard = function () {
+  $('#game-board').slideDown('slow')
+}
+
 const onStartNewGameSuccess = function (data) {
   store.game = data.game
+  showGameBoard()
   $('#change-password-button').hide('slow')
   $('#sign-out-button').hide('slow')
   $('#start-new-game').hide('slow')
@@ -97,10 +102,20 @@ const onGetOpenGames = function (data) {
   $('#get-open-gms-msg').text('')
   const game = store.history.games.length
   $('#get-open-gms-msg').text('You have played ' + game + ' games!')
+  $('#myModalLabel').text('Previous Game Stats')
 }
 const declareWinner = function (player) {
-  $('#message').text(player + ' WINS!!! Click "Start Game" to play again!')
-  $('#game-board').slideUp('slow')
+  $('#get-open-gms-modal').modal('toggle')
+  $('#get-open-gms-msg').text(player + ' WINS!!! Click "Start Game" to play again!')
+  $('#myModalLabel').text('WHOO!!!  Victory!!!')
+  for (let x = 0; x < 3; x++) {
+    for (let y = 0; y < 3; y++) {
+      // $('#gridPos' + x + y).off('click')
+      // $('#gridPos' + x + y).attr('id', 'gridPos')
+      $('.box').css('pointer-events', 'none')
+    }
+  }
+  // $('#game-board').slideUp('slow')
   $('#change-password-button').slideDown('slow')
   $('#sign-out-button').slideDown('slow')
   $('#start-new-game').slideDown('slow')
@@ -134,5 +149,6 @@ module.exports = {
   hidePostLogin,
   showPostLogin,
   hideGameBoard,
+  showGameBoard,
   declareWinner
 }

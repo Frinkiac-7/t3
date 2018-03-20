@@ -98,6 +98,12 @@ const onClick = function (event) {
 
 const onStartNewGame = function (event) {
   event.preventDefault()
+  console.log('events.onStartNewGame invoked')
+  for (let x = 0; x < 3; x++) {
+    for (let y = 0; y < 3; y++) {
+      $('#gridPos').attr('id', '#gridPos' + x + y)
+    }
+  }
   api.onStartNewGame(store.user.token)
     .then(ui.onStartNewGameSuccess)
     .then(engine.setBoard)

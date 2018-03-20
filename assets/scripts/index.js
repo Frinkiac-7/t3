@@ -22,7 +22,7 @@ $(() => {
   $('#acctExists').click(events.onAcctExists)
   for (let x = 0; x < 3; x++) {
     for (let y = 0; y < 3; y++) {
-      $('#gridPos' + x + y).click(events.onClick)
+      $('#gridPos' + x + y).on('click', events.onClick)
     }
   }
 
@@ -32,6 +32,6 @@ $(() => {
   $('#chng-pw-form').submit(events.onChangePassword)
   $('#sign-out-btn').click('submit', events.onSignOut)
   $('#get-open-gms').click('submit', events.onGetOpenGames)
-  $('#start-new-game').submit(events.onStartNewGame)
+  $('#strt-gms-btn').click('submit', events.onStartNewGame)
   $('#get-open-games').submit(events.onGetOpenGames)
 })

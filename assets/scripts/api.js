@@ -52,6 +52,7 @@ const onChangePassword = function (data) {
 
 // Game functions
 const onStartNewGame = function (token) {
+  console.log('api.onStartNewGame invoked')
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
